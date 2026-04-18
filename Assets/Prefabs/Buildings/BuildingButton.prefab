@@ -134,3 +134,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Signal.Core.Building::Signal.Core.Buildings.Presentation.BuildingButtonPresenter
   _image: {fileID: 1233099098545315390}
+  _button: {fileID: 5767139281752067664}

@@ -14,6 +14,6 @@ namespace Signal.Core.Buildings.Infrastructure
             _buildingData = buildingDefinitions.ToDictionary(definition => definition.Id, definition => definition);
         }
 
-        public BuildingDefinition Get(BuildingId buildingId) => _buildingData[buildingId.Id];
+        public BuildingDefinition Get(string id) => _buildingData[id];
     }
 }

@@ -22,13 +22,18 @@ namespace Signal.Core.Buildings
             containerBuilder.RegisterValue(_buildingCategoryDefinitions);
             containerBuilder.RegisterType(typeof(BuildingActionFactory), Lifetime.Singleton, Resolution.Lazy);
             containerBuilder.RegisterFactory(container => new BuildingCatalog(_buildingDefinitions), Lifetime.Singleton, Resolution.Lazy);
-            
-            containerBuilder.RegisterFactory<IBuildingPlacement>(container =>
+            containerBuilder.RegisterFactory(container => new BuildingGrid(_gridSettings.Origin, _gridSettings.CellSize), Lifetime.Singleton, Resolution.Lazy);
+            containerBuilder.RegisterType(typeof(BuildingGridSnapper), Lifetime.Singleton, Resolution.Lazy);
+            containerBuilder.RegisterType(typeof(GridOccupancy), Lifetime.Singleton, Resolution.Lazy);
+
+            containerBuilder.RegisterFactory(container =>
                 new BuildingPlacement(_buildingPresenterPrefab,
                     container.Resolve<BuildingCatalog>(),
                     container.Resolve<BuildingActionFactory>(),
-                    new BuildingGrid(_gridSettings.Origin, _gridSettings.CellSize)),
+                    container.Resolve<BuildingGridSnapper>(),
+                    container.Resolve<GridOccupancy>()),
                 Lifetime.Singleton, Resolution.Lazy);
+
         }
     }
 }

@@ -1,7 +1,6 @@
 ﻿using Signal.Core.Buildings.Domain;
 using Signal.Core.Buildings.Infrastructure;
 using Signal.Core.Economy;
-using System;
 
 namespace Signal.Core.Buildings.Application
 {
@@ -19,8 +18,7 @@ namespace Signal.Core.Buildings.Application
             return definition switch
             {
                 IncreaseResourceActionDefinition increase => new IncreaseResourceAction(increase.ResourceId, increase.Amount, increase.CooldownInSeconds, _resourceWallet),
-
-                _ => throw new InvalidOperationException($"Unknown action definition: {definition.GetType().Name}")
+                _ => new EmptyAction()
             };
         }
     }

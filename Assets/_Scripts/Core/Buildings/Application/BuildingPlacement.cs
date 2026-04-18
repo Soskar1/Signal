@@ -5,32 +5,35 @@ using UnityEngine;
 
 namespace Signal.Core.Buildings.Application
 {
-    internal class BuildingPlacement : IBuildingPlacement
+    internal class BuildingPlacement
     {
         private readonly BuildingPresenter _buildingPresenterPrefab;
         private readonly BuildingCatalog _buildingCatalog;
         private readonly BuildingActionFactory _buildingActionFactory;
-        private readonly BuildingGrid _grid;
+        private readonly BuildingGridSnapper _gridSnapper;
+        private readonly GridOccupancy _gridOccupancy;
 
-        public BuildingPlacement(BuildingPresenter buildingPresenterPrefab, BuildingCatalog catalog, BuildingActionFactory factory, BuildingGrid buildingGrid)
+        public BuildingPlacement(BuildingPresenter buildingPresenterPrefab, BuildingCatalog catalog, BuildingActionFactory factory, BuildingGridSnapper gridSnapper, GridOccupancy gridOccupancy)
         {
             _buildingPresenterPrefab = buildingPresenterPrefab;
             _buildingCatalog = catalog;
             _buildingActionFactory = factory;
-            _grid = buildingGrid;
+            _gridSnapper = gridSnapper;
+            _gridOccupancy = gridOccupancy;
         }
 
-        public void PlaceBuilding(Vector3 worldPosition, BuildingId buildingId)
+        public void PlaceBuilding(GridPosition gridPosition, string buildingId)
         {
             var definition = _buildingCatalog.Get(buildingId);
             var action = _buildingActionFactory.Create(definition.ActionDefinition);
             var building = new Building(definition.Id, action);
 
-            var cell = _grid.WorldToGrid(worldPosition);
-            var snappedPosition = _grid.GridToWorld(cell);
+            var worldPosition = _gridSnapper.ToWorldPosition(gridPosition);
 
-            var presenter = GameObject.Instantiate(_buildingPresenterPrefab, snappedPosition, Quaternion.identity);
+            var presenter = GameObject.Instantiate(_buildingPresenterPrefab, worldPosition, Quaternion.identity);
             presenter.Initialize(building, definition.Sprite);
+
+            _gridOccupancy.Occupy(gridPosition);
         }
     }
 }

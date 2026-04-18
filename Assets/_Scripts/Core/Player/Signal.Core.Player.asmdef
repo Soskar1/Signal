@@ -1,11 +1,9 @@
 {
-    "name": "Signal.Core.Building",
+    "name": "Signal.Core.Player",
     "rootNamespace": "",
     "references": [
         "GUID:1530a967b84cfb44dbdd5e8a1989764f",
-        "GUID:e5cdb0330c92069499e838ef89cdc664",
-        "GUID:7dd7bf95d2dcdce4cafeff3497dac3b6",
-        "GUID:6055be8ebefd69e48b49212b09b47b2f"
+        "GUID:75469ad4d38634e559750d17036d5f7c"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
