@@ -9,6 +9,7 @@ namespace Signal.Core.Buildings.Presentation
 {
     internal class BuildingPanelPresenter : MonoBehaviour
     {
+        [SerializeField] private BuildingDescriptionTooltip _tooltip;
         [SerializeField] private BuildingCategoryPresenter _buildingCategoryPresenter;
         [SerializeField] private BuildingButtonPresenter _buildingButtonPrefab;
         [SerializeField] private Transform _buildingButtonContainer;
@@ -36,7 +37,7 @@ namespace Signal.Core.Buildings.Presentation
                 }
 
                 var presenter = Instantiate(_buildingButtonPrefab, _buildingButtonContainer);
-                presenter.Initialize(definition.Sprite);
+                presenter.Initialize(definition, _tooltip);
 
                 if (!buildingButtons.TryGetValue(definition.Category, out var buttonList))
                 {
