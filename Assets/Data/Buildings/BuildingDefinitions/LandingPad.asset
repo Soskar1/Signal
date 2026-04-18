@@ -15,6 +15,9 @@ MonoBehaviour:
   _id: {fileID: 11400000, guid: e4825ff8d934ae242a9cd4cb946272bb, type: 2}
   _displayName: Landing Pad
   _description: Test
-  _sprite: {fileID: 21300000, guid: 5d10b84520fb89b41968a98b9138b1dc, type: 3}
-  _health: 10
+  _baseSprite: {fileID: 21300000, guid: 5d10b84520fb89b41968a98b9138b1dc, type: 3}
+  _headSprite: {fileID: 0}
+  _displaySprite: {fileID: 21300000, guid: 5d10b84520fb89b41968a98b9138b1dc, type: 3}
   _actionDefinition: {fileID: 0}
+  _category: 0
+  _isConstructable: 0

@@ -12,7 +12,7 @@ namespace Signal.Core.Buildings.Presentation
 
         public void Display(BuildingDefinition buildingDefinition)
         {
-            _image.sprite = buildingDefinition.Sprite;
+            _image.sprite = buildingDefinition.DisplaySprite;
             _displayName.text = buildingDefinition.DisplayName;
             _description.text = buildingDefinition.Description;
 

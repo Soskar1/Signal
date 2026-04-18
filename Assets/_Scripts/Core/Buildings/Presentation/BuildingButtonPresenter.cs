@@ -16,7 +16,7 @@ namespace Signal.Core.Buildings.Presentation
         public void Initialize(BuildingDefinition buildingDefinition, BuildingDescriptionTooltip tooltip, BuildModePresenter buildModePresenter)
         {
             _buildingDefinition = buildingDefinition;
-            _image.sprite = _buildingDefinition.Sprite;
+            _image.sprite = _buildingDefinition.DisplaySprite;
             _tooltip = tooltip;
             _buildModePresenter = buildModePresenter;
 

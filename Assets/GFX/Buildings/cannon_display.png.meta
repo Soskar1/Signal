@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 93abfc7051a4e914fa7e83108006fb24
+guid: 4e8fca4f7a9cd2b42b035ffb138b638c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -957515266671308498
-    second: bgtestl_0
+      213: 7774162999383732960
+    second: cannon_display_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bgtestl_0
+      name: cannon_display_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 640
-        height: 360
+        x: 5
+        y: 2
+        width: 27
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e211b0720f836b2f0800000000000000
-      internalID: -957515266671308498
+      spriteID: 0e2b0440f0063eb60800000000000000
+      internalID: 7774162999383732960
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      bgtestl_0: -957515266671308498
+      cannon_display_0: 7774162999383732960
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

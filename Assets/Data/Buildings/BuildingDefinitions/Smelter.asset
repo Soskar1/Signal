@@ -15,7 +15,9 @@ MonoBehaviour:
   _id: {fileID: 11400000, guid: 707c011c6e0fe30489a1c1d283f685cd, type: 2}
   _displayName: Radar
   _description: Test
-  _sprite: {fileID: 21300000, guid: dc7da6e67d80a9a43a6e37f7a027ae58, type: 3}
+  _baseSprite: {fileID: 21300000, guid: dc7da6e67d80a9a43a6e37f7a027ae58, type: 3}
+  _headSprite: {fileID: 0}
+  _displaySprite: {fileID: 21300000, guid: dc7da6e67d80a9a43a6e37f7a027ae58, type: 3}
   _actionDefinition: {fileID: 0}
   _category: 2
   _isConstructable: 1

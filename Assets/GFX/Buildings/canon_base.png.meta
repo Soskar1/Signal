@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 93abfc7051a4e914fa7e83108006fb24
+guid: 90c477cc17edeea4cb3961cd4b1c2252
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -957515266671308498
-    second: bgtestl_0
+      213: 3514585595747175944
+    second: canon_base_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bgtestl_0
+      name: canon_base_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 640
-        height: 360
+        x: 5
+        y: 1
+        width: 22
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e211b0720f836b2f0800000000000000
-      internalID: -957515266671308498
+      spriteID: 80e073f6af056c030800000000000000
+      internalID: 3514585595747175944
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      bgtestl_0: -957515266671308498
+      canon_base_0: 3514585595747175944
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

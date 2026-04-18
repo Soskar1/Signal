@@ -58,7 +58,7 @@ namespace Signal.Core.Buildings.Presentation
 
         public void EnterBuildMode(BuildingDefinition buildingDefinition)
         {
-            _ghostBuilding.Display(buildingDefinition.Sprite);
+            _ghostBuilding.Display(buildingDefinition.DisplaySprite);
             _currentBuilding = buildingDefinition;
             _readMouseInput = true;
         }

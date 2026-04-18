@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 93abfc7051a4e914fa7e83108006fb24
+guid: 6934f6eab94c415498ebb6dd793da506
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -957515266671308498
-    second: bgtestl_0
+      213: -3828992407108714511
+    second: canon_tube_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,8 +49,8 @@ TextureImporter:
   spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
+  alignment: 9
+  spritePivot: {x: 0.38, y: 0.47}
   spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bgtestl_0
+      name: canon_tube_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 640
-        height: 360
+        x: 6
+        y: 12
+        width: 22
+        height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e211b0720f836b2f0800000000000000
-      internalID: -957515266671308498
+      spriteID: 1fffd9e41bfacdac0800000000000000
+      internalID: -3828992407108714511
       vertices: []
       indices: 
       edges: []
@@ -139,7 +139,7 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 0
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      bgtestl_0: -957515266671308498
+      canon_tube_0: -3828992407108714511
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

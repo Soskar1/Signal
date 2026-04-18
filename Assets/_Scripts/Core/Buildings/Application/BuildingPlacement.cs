@@ -37,7 +37,7 @@ namespace Signal.Core.Buildings.Application
             var worldPosition = GetSnappedWorldPosition(gridPosition);
 
             var presenter = GameObject.Instantiate(_buildingPresenterPrefab, worldPosition, Quaternion.identity);
-            presenter.Initialize(building, definition.Sprite);
+            presenter.Initialize(building, definition.BaseSprite, definition.HeadSprite);
 
             _gridOccupancy.Occupy(gridPosition);
         }
