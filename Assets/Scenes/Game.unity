@@ -128,6 +128,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 179552815}
+  - component: {fileID: 179552816}
   m_Layer: 5
   m_Name: ResourcesMenu
   m_TagString: Untagged
@@ -148,6 +149,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1259593232}
+  - {fileID: 1396744882}
   m_Father: {fileID: 847455638}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -155,6 +157,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 384.06, y: 273.6}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &179552816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 179552814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: deda148ebc56476428768678eaf7ffba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Signal.Core.Economy::Signal.Core.Economy.Presentation.ResourcePanelPresenter
+  _categoryPresenterPrefab: {fileID: 6907008162729614815, guid: 0d7147de6eab2b04a8186efdfc32e77c, type: 3}
+  _resourcePresenterPrefab: {fileID: 5110368233853592184, guid: 3fc8150339b60394eac70b59e7175bfa, type: 3}
+  _categoryContainer: {fileID: 1396744882}
 --- !u!1 &195674768
 GameObject:
   m_ObjectHideFlags: 0
@@ -717,6 +734,7 @@ GameObject:
   - component: {fileID: 586808962}
   - component: {fileID: 586808961}
   - component: {fileID: 586808963}
+  - component: {fileID: 586808964}
   m_Layer: 0
   m_Name: SceneBootstrap
   m_TagString: Untagged
@@ -748,7 +766,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1132357655}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &586808963
@@ -763,6 +782,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f7f8e48b6ad4714592bf5c5cae80760, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Signal.Core.SceneInstaller
+  _economyInstaller: {fileID: 1132357656}
+--- !u!114 &586808964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 586808960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0fa1917a4c6c014284bcc64b8da7e60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Signal.Core.Bootstrap.SceneBootstrap
+  _economyBootstrap: {fileID: 1132357657}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1200,7 +1233,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000061035156, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 384.06, y: 0}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &847455639
@@ -1440,6 +1473,74 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 384.06, y: 707.44}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1132357654
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1132357655}
+  - component: {fileID: 1132357656}
+  - component: {fileID: 1132357657}
+  m_Layer: 0
+  m_Name: EconomyInstaller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1132357655
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1132357654}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 586808962}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1132357656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1132357654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e3f3335f480c254bb62231182a71e87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Signal.Core.Economy::Signal.Core.Economy.EconomyInstaller
+  _resources:
+  - {fileID: 11400000, guid: 3fc032e430a59b54c928b988134fac51, type: 2}
+  - {fileID: 11400000, guid: 9608a46df76e2ff4dbfd8b13b6a6ce62, type: 2}
+  - {fileID: 11400000, guid: dea8e15e8f937f644952ebc5c68759d6, type: 2}
+  - {fileID: 11400000, guid: 02b45ac89c0055f4e99e81bbd7e49ba9, type: 2}
+  - {fileID: 11400000, guid: 59891c739399845458b82a9ef83e86f1, type: 2}
+  _categories:
+  - {fileID: 11400000, guid: e751781d5c7ac444c83683e71ab78043, type: 2}
+  - {fileID: 11400000, guid: c92f719e15990ce4c9d10458e78f7a2a, type: 2}
+  - {fileID: 11400000, guid: f544636c4b89484458a0a9ce3604d949, type: 2}
+--- !u!114 &1132357657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1132357654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8afa4683aa4da6648a228e42f149848c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Signal.Core.Economy::Signal.Core.Economy.EconomyBootstrap
+  _resourcePanel: {fileID: 179552816}
 --- !u!1 &1173252468
 GameObject:
   m_ObjectHideFlags: 0
@@ -1712,6 +1813,68 @@ MonoBehaviour:
   m_Spacing: 0
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 0
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
+--- !u!1 &1396744881
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1396744882}
+  - component: {fileID: 1396744883}
+  m_Layer: 5
+  m_Name: Categories
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1396744882
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1396744881}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 179552815}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -0.000030517578, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1396744883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1396744881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.HorizontalLayoutGroup
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 3
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0

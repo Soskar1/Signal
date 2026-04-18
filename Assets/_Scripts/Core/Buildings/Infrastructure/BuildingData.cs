@@ -5,14 +5,14 @@ namespace Signal.Core.Buildings
     [CreateAssetMenu(fileName = "BuildingData", menuName = "Scriptable Objects/BuildingData")]
     internal class BuildingData : ScriptableObject
     {
-        [SerializeField] private string m_name;
-        [SerializeField] private string m_description;
-        [SerializeField] private Sprite m_sprite;
-        [SerializeField] private int m_health;
+        [SerializeField] private string _name;
+        [SerializeField] private string _description;
+        [SerializeField] private Sprite _sprite;
+        [SerializeField] private int _health;
 
-        public string Name => m_name;
-        public string Description => m_description;
-        public Sprite Sprite => m_sprite;
-        public int Health => m_health;
+        public string Name => _name;
+        public string Description => _description;
+        public Sprite Sprite => _sprite;
+        public int Health => _health;
     }
 }
