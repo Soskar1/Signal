@@ -5,6 +5,6 @@ namespace Signal.Core.Buildings
 {
     public interface IBuildingCatalog
     {
-        public IEnumerable<BuildingViewData> GetBuildingViewData();
+        
     }
 }

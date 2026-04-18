@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Signal.Core.Economy.Infrastructure
 {
-    [CreateAssetMenu(fileName = "ResourceCategoryDefinition", menuName = "Signal/Resource Category Definition")]
+    [CreateAssetMenu(fileName = "ResourceCategoryDefinition", menuName = "Signal/Economy/Resource Category Definition")]
     internal class ResourceCategoryDefinition : ScriptableObject
     {
         [SerializeField] private ResourceCategory _category;

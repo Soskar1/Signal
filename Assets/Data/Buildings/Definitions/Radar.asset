@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bea1711306430b44ba242e455b4a597, type: 3}
+  m_Name: Radar
+  m_EditorClassIdentifier: Signal.Core.Building::Signal.Core.Buildings.BuildingData
+  _id: {fileID: 11400000, guid: 99bb63a737779054bb132774c7e55f2e, type: 2}
+  _displayName: Radar
+  _description: Test
+  _sprite: {fileID: 0}
+  _health: 10
+  _buildingAction:
+    rid: 8236128658266784083
+  references:
+    version: 2
+    RefIds:
+    - rid: 8236128658266784083
+      type: {class: IncreaseResourceAction, ns: Signal.Core.Buildings.Domain, asm: Signal.Core.Building}
+      data:
+        _cooldownInSeconds: 2
+        _resourceId: {fileID: 11400000, guid: a3c341acfebb3654e86b3506e4bb3e1a, type: 2}
+        _increaseAmount: 1

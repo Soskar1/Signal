@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eae4f356749a0e4cabe7fc398a93753, type: 3}
   m_Name: Brick
   m_EditorClassIdentifier: Signal.Core.Economy::Signal.Core.Economy.Infrastructure.ResourceDefinition
-  _id: Brick
+  _resourceId: {fileID: 11400000, guid: a3c341acfebb3654e86b3506e4bb3e1a, type: 2}
   _displayName: Brick
   _sprite: {fileID: 0}
   _category: 1

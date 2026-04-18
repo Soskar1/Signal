@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eae4f356749a0e4cabe7fc398a93753, type: 3}
   m_Name: Iron
   m_EditorClassIdentifier: Signal.Core.Economy::Signal.Core.Economy.Infrastructure.ResourceDefinition
-  _id: Iron
+  _resourceId: {fileID: 11400000, guid: 2db53ac09d4e0984e9802d3259d78a47, type: 2}
   _displayName: Iron
   _sprite: {fileID: 0}
   _category: 1

@@ -1,4 +1,5 @@
 ﻿using Signal.Core.Economy.Application;
+using Signal.Core.Economy.Domain;
 using System.Collections.Generic;
 
 namespace Signal.Core.Economy.Infrastructure
@@ -21,5 +22,7 @@ namespace Signal.Core.Economy.Infrastructure
                 _resources.Add(resource.Id, entry);
             }
         }
+
+        public Resource Get(ResourceId resourceId) => _resources[resourceId.Id].Resource;
     }
 }

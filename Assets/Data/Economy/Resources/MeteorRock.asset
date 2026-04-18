@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eae4f356749a0e4cabe7fc398a93753, type: 3}
   m_Name: MeteorRock
   m_EditorClassIdentifier: Signal.Core.Economy::Signal.Core.Economy.Infrastructure.ResourceDefinition
-  _id: MeteorRock
+  _resourceId: {fileID: 11400000, guid: f07be65e62b32d74288463765c61eb15, type: 2}
   _displayName: Meteor Rock
   _sprite: {fileID: 0}
   _category: 0

@@ -1,22 +1,17 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace Signal.Core.Buildings.Infrastructure
 {
     internal class BuildingCatalog : IBuildingCatalog
     {
-        private readonly IReadOnlyList<BuildingData> _buildingData;
+        private readonly Dictionary<string, BuildingDefinition> _buildingData;
 
-        public BuildingCatalog(IReadOnlyList<BuildingData> buildingData)
+        public BuildingCatalog(IEnumerable<BuildingDefinition> buildingDefinitions)
         {
-            _buildingData = buildingData;
+            _buildingData = buildingDefinitions.ToDictionary(definition => definition.Id, definition => definition);
         }
 
-        public IEnumerable<BuildingViewData> GetBuildingViewData()
-        {
-            foreach (var data in _buildingData)
-            {
-                yield return new BuildingViewData(data.Name, data.Description, data.Sprite);
-            }
-        }
+        public BuildingDefinition Get(BuildingId buildingId) => _buildingData[buildingId.Id];
     }
 }

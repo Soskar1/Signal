@@ -1,8 +1,8 @@
 ﻿using Reflex.Core;
 using Reflex.Enums;
+using Signal.Core.Economy.Application;
 using Signal.Core.Economy.Infrastructure;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using Resolution = Reflex.Enums.Resolution;
 
@@ -17,6 +17,7 @@ namespace Signal.Core.Economy
         {
             containerBuilder.RegisterFactory(container => new ResourceCatalog(_resources), Lifetime.Singleton, Resolution.Lazy);
             containerBuilder.RegisterValue(_categories);
+            containerBuilder.RegisterFactory<IResourceWallet>(container => new ResourceWallet(container.Resolve<ResourceCatalog>()), Lifetime.Singleton, Resolution.Lazy);
         }
     }
 }

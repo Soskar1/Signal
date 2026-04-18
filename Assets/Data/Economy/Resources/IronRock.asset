@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eae4f356749a0e4cabe7fc398a93753, type: 3}
   m_Name: IronRock
   m_EditorClassIdentifier: Signal.Core.Economy::Signal.Core.Economy.Infrastructure.ResourceDefinition
-  _id: IronRock
+  _resourceId: {fileID: 11400000, guid: e525ed4d6ee62434ea278ba775a51ad7, type: 2}
   _displayName: Iron Rock
   _sprite: {fileID: 0}
   _category: 0

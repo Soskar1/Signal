@@ -33,6 +33,15 @@ namespace Signal.Core.Economy.Domain
 
         public void Add(int count) => Count += count;
 
-        public void Withdraw(int count) => Count -= count;
+        public bool TryWithdraw(int count)
+        {
+            if (Count >= count)
+            {
+                Count -= count;
+                return true;
+            }
+
+            return false;
+        }
     }
 }

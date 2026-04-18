@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eae4f356749a0e4cabe7fc398a93753, type: 3}
   m_Name: Bullet
   m_EditorClassIdentifier: Signal.Core.Economy::Signal.Core.Economy.Infrastructure.ResourceDefinition
-  _id: Bullet
+  _resourceId: {fileID: 11400000, guid: 28de9ba1b0c0a414e9dcdf4911b6d0e8, type: 2}
   _displayName: Bullet
   _sprite: {fileID: 0}
   _category: 2
