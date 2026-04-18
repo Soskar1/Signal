@@ -1,4 +1,5 @@
 ﻿using Reflex.Attributes;
+using Signal.Core.Buildings.Presentation;
 using UnityEngine;
 
 namespace Signal.Core.Buildings
@@ -7,6 +8,8 @@ namespace Signal.Core.Buildings
     {
         [SerializeField] private Transform _radarSpawnpoint;
         [SerializeField] private BuildingId _radarId;
+
+        [SerializeField] private BuildingPanelPresenter _buildingPanel;
 
         private IBuildingPlacement _buildingPlacement;
 
@@ -18,6 +21,7 @@ namespace Signal.Core.Buildings
 
         public void Initialize()
         {
+            _buildingPanel.Initialize();
             _buildingPlacement.PlaceBuilding(_radarSpawnpoint, _radarId);
         }
     }

@@ -11,14 +11,16 @@ namespace Signal.Core.Buildings
         [SerializeField] private string _displayName;
         [SerializeField] private string _description;
         [SerializeField] private Sprite _sprite;
-        [SerializeField] private int _health;
         [SerializeField] private BuildingActionDefinition _actionDefinition;
+        [SerializeField] private BuildingCategory _category;
+        [SerializeField] private bool _isConstructable;
 
         public string Id => _id.Id;
         public string DisplayName => _displayName;
         public string Description => _description;
         public Sprite Sprite => _sprite;
         public BuildingActionDefinition ActionDefinition => _actionDefinition;
-        public int Health => _health;
+        public BuildingCategory Category => _category;
+        public bool IsConstructable => _isConstructable;
     }
 }

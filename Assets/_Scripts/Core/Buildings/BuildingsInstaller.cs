@@ -13,9 +13,11 @@ namespace Signal.Core.Buildings
     {
         [SerializeField] private BuildingPresenter _buildingPresenterPrefab;
         [SerializeField] private List<BuildingDefinition> _buildingDefinitions;
+        [SerializeField] private List<BuildingCategoryDefinition> _buildingCategoryDefinitions;
 
         public void Install(ContainerBuilder containerBuilder)
         {
+            containerBuilder.RegisterValue(_buildingCategoryDefinitions);
             containerBuilder.RegisterType(typeof(BuildingActionFactory), Lifetime.Singleton, Resolution.Lazy);
             containerBuilder.RegisterFactory(container => new BuildingCatalog(_buildingDefinitions), Lifetime.Singleton, Resolution.Lazy);
             containerBuilder.RegisterFactory<IBuildingPlacement>(container =>
