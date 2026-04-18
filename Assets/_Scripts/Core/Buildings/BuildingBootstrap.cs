@@ -13,21 +13,17 @@ namespace Signal.Core.Buildings
         [SerializeField] private BuildingPanelPresenter _buildingPanel;
 
         private BuildingPlacement _buildingPlacement;
-        private BuildingGridSnapper _gridSnapper;
 
         [Inject]
-        internal void Inject(BuildingPlacement buildingPlacement, BuildingGridSnapper gridSnapper)
+        internal void Inject(BuildingPlacement buildingPlacement)
         {
             _buildingPlacement = buildingPlacement;
-            _gridSnapper = gridSnapper;
         }
 
         public void Initialize()
         {
             _buildingPanel.Initialize();
-
-            var gridPosition = _gridSnapper.ToGridPosition(_radarSpawnpoint.position);
-            _buildingPlacement.PlaceBuilding(gridPosition, _radar.Id);
+            _buildingPlacement.PlaceBuilding(_radarSpawnpoint.position, _radar.Id);
         }
     }
 }

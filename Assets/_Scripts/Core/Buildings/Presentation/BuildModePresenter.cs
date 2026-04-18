@@ -10,9 +10,7 @@ namespace Signal.Core.Buildings.Presentation
     {
         [SerializeField] private GhostBuildingPresenter _ghostBuilding;
 
-        private BuildingGridSnapper _gridSnapper;
         private BuildingPlacement _buildingPlacement;
-        private GridOccupancy _gridOccupancy;
 
         private IInputReader _inputReader;
         private bool _readMouseInput = false;
@@ -21,12 +19,10 @@ namespace Signal.Core.Buildings.Presentation
         private GridPosition _currentBuildingPosition;
 
         [Inject]
-        public void Inject(IInputReader inputReader, BuildingGridSnapper buildingGridSnapper, BuildingPlacement buildingPlacement, GridOccupancy gridOccupancy)
+        public void Inject(IInputReader inputReader, BuildingPlacement buildingPlacement)
         {
             _inputReader = inputReader;
-            _gridSnapper = buildingGridSnapper;
             _buildingPlacement = buildingPlacement;
-            _gridOccupancy = gridOccupancy;
         }
 
         public void Update()
@@ -38,20 +34,20 @@ namespace Signal.Core.Buildings.Presentation
 
             var screenMousePosition = _inputReader.MousePosition;
             var mouseWorldPosition = Camera.main.ScreenToWorldPoint(screenMousePosition);
-            _currentBuildingPosition = _gridSnapper.ToGridPosition(mouseWorldPosition);
+            _currentBuildingPosition = _buildingPlacement.GetGridPosition(mouseWorldPosition);
 
-            var snappedPosition = _gridSnapper.ToWorldPosition(_currentBuildingPosition);
+            var snappedPosition = _buildingPlacement.GetSnappedWorldPosition(_currentBuildingPosition);
             _ghostBuilding.transform.position = new Vector2(snappedPosition.x, snappedPosition.y);
 
             _ghostBuilding.DisplayAsValid();
             
-            var isTileOccupied = _gridOccupancy.IsOccupied(_currentBuildingPosition);
-            if (isTileOccupied)
+            var canPlace = _buildingPlacement.CanPlace(_currentBuildingPosition);
+            if (!canPlace)
             {
                 _ghostBuilding.DisplayAsInvalid();
             }
 
-            if (_inputReader.IsBuildButtonPressed && !isTileOccupied)
+            if (_inputReader.IsBuildButtonPressed && canPlace)
             {
                 Build();
                 ExitBuildMode();

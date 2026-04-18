@@ -10,16 +10,22 @@ namespace Signal.Core.Buildings.Application
         private readonly BuildingPresenter _buildingPresenterPrefab;
         private readonly BuildingCatalog _buildingCatalog;
         private readonly BuildingActionFactory _buildingActionFactory;
-        private readonly BuildingGridSnapper _gridSnapper;
+        private readonly BuildingGrid _buildingGrid;
         private readonly GridOccupancy _gridOccupancy;
 
-        public BuildingPlacement(BuildingPresenter buildingPresenterPrefab, BuildingCatalog catalog, BuildingActionFactory factory, BuildingGridSnapper gridSnapper, GridOccupancy gridOccupancy)
+        public BuildingPlacement(BuildingPresenter buildingPresenterPrefab, BuildingCatalog catalog, BuildingActionFactory factory, BuildingGrid buildingGrid, GridOccupancy gridOccupancy)
         {
             _buildingPresenterPrefab = buildingPresenterPrefab;
             _buildingCatalog = catalog;
             _buildingActionFactory = factory;
-            _gridSnapper = gridSnapper;
+            _buildingGrid = buildingGrid;
             _gridOccupancy = gridOccupancy;
+        }
+
+        public void PlaceBuilding(Vector2 worldPosition, string buildingId)
+        {
+            var gridPosition = GetGridPosition(worldPosition);
+            PlaceBuilding(gridPosition, buildingId);
         }
 
         public void PlaceBuilding(GridPosition gridPosition, string buildingId)
@@ -28,12 +34,27 @@ namespace Signal.Core.Buildings.Application
             var action = _buildingActionFactory.Create(definition.ActionDefinition);
             var building = new Building(definition.Id, action);
 
-            var worldPosition = _gridSnapper.ToWorldPosition(gridPosition);
+            var worldPosition = GetSnappedWorldPosition(gridPosition);
 
             var presenter = GameObject.Instantiate(_buildingPresenterPrefab, worldPosition, Quaternion.identity);
             presenter.Initialize(building, definition.Sprite);
 
             _gridOccupancy.Occupy(gridPosition);
+        }
+
+        public GridPosition GetGridPosition(Vector3 worldPosition)
+        {
+            return _buildingGrid.WorldToGrid(worldPosition);
+        }
+
+        public Vector3 GetSnappedWorldPosition(GridPosition position)
+        {
+            return _buildingGrid.GridToWorld(position);
+        }
+
+        public bool CanPlace(GridPosition position)
+        {
+            return !_gridOccupancy.IsOccupied(position);
         }
     }
 }
