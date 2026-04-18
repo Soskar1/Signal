@@ -16,9 +16,10 @@ namespace Signal.Core.Buildings
 
         public void Install(ContainerBuilder containerBuilder)
         {
+            containerBuilder.RegisterType(typeof(BuildingActionFactory), Lifetime.Singleton, Resolution.Lazy);
             containerBuilder.RegisterFactory(container => new BuildingCatalog(_buildingDefinitions), Lifetime.Singleton, Resolution.Lazy);
             containerBuilder.RegisterFactory<IBuildingPlacement>(container =>
-                new BuildingPlacement(_buildingPresenterPrefab, container.Resolve<BuildingCatalog>()), Lifetime.Singleton, Resolution.Lazy);
+                new BuildingPlacement(_buildingPresenterPrefab, container.Resolve<BuildingCatalog>(), container.Resolve<BuildingActionFactory>()), Lifetime.Singleton, Resolution.Lazy);
         }
     }
 }

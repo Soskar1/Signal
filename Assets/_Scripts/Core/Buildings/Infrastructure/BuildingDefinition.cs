@@ -1,4 +1,5 @@
 using Signal.Core.Buildings.Domain;
+using Signal.Core.Buildings.Infrastructure;
 using UnityEngine;
 
 namespace Signal.Core.Buildings
@@ -11,13 +12,13 @@ namespace Signal.Core.Buildings
         [SerializeField] private string _description;
         [SerializeField] private Sprite _sprite;
         [SerializeField] private int _health;
-        [SerializeReference, SubclassSelector] private BuildingAction _buildingAction;
+        [SerializeField] private BuildingActionDefinition _actionDefinition;
 
         public string Id => _id.Id;
         public string DisplayName => _displayName;
         public string Description => _description;
         public Sprite Sprite => _sprite;
-        public BuildingAction BuildingAction => _buildingAction;
+        public BuildingActionDefinition ActionDefinition => _actionDefinition;
         public int Health => _health;
     }
 }

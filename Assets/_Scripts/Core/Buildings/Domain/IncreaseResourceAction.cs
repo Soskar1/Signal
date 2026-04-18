@@ -1,23 +1,39 @@
 ﻿using Signal.Core.Economy;
-using UnityEngine;
 
 namespace Signal.Core.Buildings.Domain
 {
-    [System.Serializable]
-    public class IncreaseResourceAction : BuildingAction
+    internal sealed class IncreaseResourceAction : IBuildingAction
     {
-        [SerializeField] private ResourceId _resourceId;
-        [SerializeField] private int _increaseAmount;
+        private readonly ResourceId _resourceId;
+        private readonly int _amount;
+        private readonly float _cooldownInSeconds;
+
         private readonly IResourceWallet _resourceWallet;
 
-        public IncreaseResourceAction(IResourceWallet resourceWallet)
+        private double _elapsed;
+
+        public IncreaseResourceAction(ResourceId resourceId, int amount, float cooldownInSeconds, IResourceWallet resourceWallet)
         {
+            _resourceId = resourceId;
+            _amount = amount;
+            _cooldownInSeconds = cooldownInSeconds;
             _resourceWallet = resourceWallet;
         }
 
-        public override void Execute()
+        public void Tick(double deltaTime)
         {
-            _resourceWallet.Add(_resourceId, _increaseAmount);
+            _elapsed += deltaTime;
+
+            if (_elapsed < _cooldownInSeconds)
+                return;
+
+            _elapsed = 0;
+            Execute();
+        }
+
+        public void Execute()
+        {
+            _resourceWallet.Add(_resourceId, _amount);
         }
     }
 }

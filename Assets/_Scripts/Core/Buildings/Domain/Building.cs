@@ -3,9 +3,9 @@
     internal class Building
     {
         private readonly string _id;
-        private readonly BuildingAction _buildingAction;
+        private readonly IBuildingAction _buildingAction;
 
-        public Building(string id, BuildingAction buildingAction)
+        public Building(string id, IBuildingAction buildingAction)
         {
             _id = id;
             _buildingAction = buildingAction;

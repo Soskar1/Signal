@@ -9,17 +9,20 @@ namespace Signal.Core.Buildings.Application
     {
         private readonly BuildingPresenter _buildingPresenterPrefab;
         private readonly BuildingCatalog _buildingCatalog;
+        private readonly BuildingActionFactory _buildingActionFactory;
 
-        public BuildingPlacement(BuildingPresenter buildingPresenterPrefab, BuildingCatalog catalog)
+        public BuildingPlacement(BuildingPresenter buildingPresenterPrefab, BuildingCatalog catalog, BuildingActionFactory factory)
         {
             _buildingPresenterPrefab = buildingPresenterPrefab;
             _buildingCatalog = catalog;
+            _buildingActionFactory = factory;
         }
 
         public void PlaceBuilding(Transform transform, BuildingId buildingId)
         {
             var definition = _buildingCatalog.Get(buildingId);
-            var building = new Building(definition.Id, definition.BuildingAction);
+            var action = _buildingActionFactory.Create(definition.ActionDefinition);
+            var building = new Building(definition.Id, action);
 
             var presenter = GameObject.Instantiate(_buildingPresenterPrefab, transform);
             presenter.Initialize(building);
