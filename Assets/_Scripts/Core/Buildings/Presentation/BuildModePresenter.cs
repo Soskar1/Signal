@@ -3,6 +3,7 @@ using Signal.Core.Buildings.Application;
 using Signal.Core.Buildings.Domain;
 using Signal.Core.Player;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Signal.Core.Buildings.Presentation
 {
@@ -47,7 +48,8 @@ namespace Signal.Core.Buildings.Presentation
                 _ghostBuilding.DisplayAsInvalid();
             }
 
-            if (_inputReader.IsBuildButtonPressed && canPlace)
+            var mouseIsOverUi = EventSystem.current.IsPointerOverGameObject();
+            if (_inputReader.IsBuildButtonPressed && canPlace && !mouseIsOverUi)
             {
                 Build();
                 ExitBuildMode();
