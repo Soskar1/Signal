@@ -25,7 +25,7 @@ namespace Signal.Core.Buildings.Application
             var building = new Building(definition.Id, action);
 
             var presenter = GameObject.Instantiate(_buildingPresenterPrefab, transform);
-            presenter.Initialize(building);
+            presenter.Initialize(building, definition.Sprite);
         }
     }
 }
