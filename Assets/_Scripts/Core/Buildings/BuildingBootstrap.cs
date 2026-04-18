@@ -22,7 +22,7 @@ namespace Signal.Core.Buildings
         public void Initialize()
         {
             _buildingPanel.Initialize();
-            _buildingPlacement.PlaceBuilding(_radarSpawnpoint, _radarId);
+            _buildingPlacement.PlaceBuilding(_radarSpawnpoint.position, _radarId);
         }
     }
 }

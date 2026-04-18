@@ -4,6 +4,6 @@ namespace Signal.Core.Buildings
 {
     public interface IBuildingPlacement
     {
-        public void PlaceBuilding(Transform transform, BuildingId buildingId);
+        public void PlaceBuilding(Vector3 worldPosition, BuildingId buildingId);
     }
 }

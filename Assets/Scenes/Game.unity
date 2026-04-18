@@ -164,6 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35f14f52434555347a39783515b20769, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Signal.Core.Building::Signal.Core.Buildings.BuildingsInstaller
+  _gridSettings: {fileID: 11400000, guid: 66423cf4a1907ac4dab8a6d2fb2af2bf, type: 2}
   _buildingPresenterPrefab: {fileID: 3746730583724637065, guid: 35ba14672d9276943a965b959b0b16cb, type: 3}
   _buildingDefinitions:
   - {fileID: 11400000, guid: 1beac0bd7dcdd604fa0e85121e809344, type: 2}
@@ -186,9 +187,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a1b8291ffe0b554ab1e397e9d7029e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Signal.Core.Building::Signal.Core.Buildings.BuildingBootstrap
-  _radarSpawnpoint: {fileID: 434618236}
+  _radarSpawnpoint: {fileID: 169124960}
   _radarId: {fileID: 11400000, guid: 99bb63a737779054bb132774c7e55f2e, type: 2}
   _buildingPanel: {fileID: 1114730789}
+--- !u!1 &169124959
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 169124960}
+  m_Layer: 0
+  m_Name: Spawnpoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &169124960
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 169124959}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.27, y: 0.33, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &179552814
 GameObject:
   m_ObjectHideFlags: 0
@@ -678,37 +710,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &623340685
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 623340686}
-  m_Layer: 0
-  m_Name: RadarSpawnpoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &623340686
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 623340685}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &808485723
 GameObject:
   m_ObjectHideFlags: 0
@@ -903,37 +904,6 @@ MonoBehaviour:
   _image: {fileID: 1451658318}
   _displayName: {fileID: 1140196701}
   _description: {fileID: 1173252470}
---- !u!1 &1085206408
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1085206409}
-  m_Layer: 0
-  m_Name: Grid
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1085206409
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1085206408}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1114730787
 GameObject:
   m_ObjectHideFlags: 0
@@ -1091,7 +1061,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 57.4, y: 28.2}
+  m_AnchoredPosition: {x: 57.4, y: 28.199997}
   m_SizeDelta: {x: 200, y: 42.04}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1140196701
@@ -1983,6 +1953,5 @@ SceneRoots:
   - {fileID: 586808962}
   - {fileID: 1945077970}
   - {fileID: 434618236}
-  - {fileID: 623340686}
-  - {fileID: 1085206409}
   - {fileID: 1558351389}
+  - {fileID: 169124960}
