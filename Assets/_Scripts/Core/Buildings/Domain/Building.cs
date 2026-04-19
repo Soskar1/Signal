@@ -4,18 +4,19 @@ namespace Signal.Core.Buildings.Domain
 {
     internal class Building
     {
-        private readonly string _id;
-        private readonly EntityInstanceId _instanceId;
         private readonly IBuildingAction _buildingAction;
 
-        public EntityInstanceId InstanceId => _instanceId;
-        public HealthOwnerId HealthOwnerId => _instanceId.HealthOwnerId;
+        public BuildingId Id { get; }
+        public EntityInstanceId InstanceId { get; }
+        public HealthOwnerId HealthOwnerId => InstanceId.HealthOwnerId;
+        public GridPosition GridPosition { get; }
 
-        public Building(string id, EntityInstanceId instanceId, IBuildingAction buildingAction)
+        public Building(BuildingId id, EntityInstanceId instanceId, GridPosition gridPosition, IBuildingAction buildingAction)
         {
-            _id = id;
-            _instanceId = instanceId;
+            Id = id;
+            InstanceId = instanceId;
             _buildingAction = buildingAction;
+            GridPosition = gridPosition;
         }
 
         public void Tick(double deltaTime)

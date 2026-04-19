@@ -25,7 +25,7 @@ namespace Signal.Core.Buildings.Application
 
         private void HandleHealthChanged(object _, HealthChangedEventArgs args)
         {
-            if (!_buildingRegistry.TryGetByHealthOwner(args.OwnerId, out var building))
+            if (!_buildingRegistry.TryGet(args.OwnerId, out var building))
                 return;
 
             if (!args.IsDead)

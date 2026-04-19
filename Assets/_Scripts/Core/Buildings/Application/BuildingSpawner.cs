@@ -12,10 +12,9 @@ namespace Signal.Core.Buildings.Application
         private readonly BuildingPresenter _buildingPresenterPrefab;
         private readonly BuildingCatalog _buildingCatalog;
         private readonly BuildingActionFactory _buildingActionFactory;
-        private readonly BuildingGrid _buildingGrid;
-        private readonly GridOccupancy _gridOccupancy;
         private readonly BuildingRegistry _buildingRegistry;
         private readonly BuildingPresenterRegistry _buildingPresenterRegistry;
+        private readonly GridSnapper _gridSnapper;
         private readonly IHealthApi _healthApi;
         private readonly IEntityInstanceIdFactory _entityInstanceIdFactory;
 
@@ -23,64 +22,50 @@ namespace Signal.Core.Buildings.Application
             BuildingPresenter buildingPresenterPrefab,
             BuildingCatalog catalog,
             BuildingActionFactory factory,
-            BuildingGrid buildingGrid,
-            GridOccupancy gridOccupancy,
             BuildingRegistry buildingRegistry,
             BuildingPresenterRegistry presenterRegistry,
+            GridSnapper gridSnapper,
             IHealthApi healthApi,
             IEntityInstanceIdFactory instanceIdFactory)
         {
             _buildingPresenterPrefab = buildingPresenterPrefab;
             _buildingCatalog = catalog;
             _buildingActionFactory = factory;
-            _buildingGrid = buildingGrid;
-            _gridOccupancy = gridOccupancy;
             _buildingRegistry = buildingRegistry;
             _buildingPresenterRegistry = presenterRegistry;
+            _gridSnapper = gridSnapper;
             _healthApi = healthApi;
             _entityInstanceIdFactory = instanceIdFactory;
         }
 
-        public void Spawn(Vector2 worldPosition, string buildingId)
+        public void Spawn(Vector2 worldPosition, BuildingId buildingId)
         {
-            var gridPosition = GetGridPosition(worldPosition);
+            var gridPosition = _gridSnapper.GetGridPosition(worldPosition);
             Spawn(gridPosition, buildingId);
         }
 
-        public void Spawn(GridPosition gridPosition, string buildingId)
+        public void Spawn(GridPosition gridPosition, BuildingId buildingId)
         {
-            var definition = _buildingCatalog.Get(buildingId);
+            var definition = _buildingCatalog.Get(buildingId.Id);
             var action = _buildingActionFactory.Create(definition.ActionDefinition);
 
             var healthOwnerId = _healthApi.Register(definition.Health);
             var entityInstanceId = _entityInstanceIdFactory.Create(healthOwnerId);
-            var building = new Building(definition.Id, entityInstanceId, action);
+            var building = new Building(definition.Id, entityInstanceId, gridPosition, action);
 
             _buildingRegistry.Add(building);
 
-            var worldPosition = GetSnappedWorldPosition(gridPosition);
+            var worldPosition = _gridSnapper.GetSnappedWorldPosition(gridPosition);
 
             var presenter = GameObject.Instantiate(_buildingPresenterPrefab, worldPosition, Quaternion.identity);
             presenter.Initialize(building, definition.BaseSprite, definition.HeadSprite);
 
-            _gridOccupancy.Occupy(gridPosition);
-
             _buildingPresenterRegistry.Add(entityInstanceId, presenter);
-        }
-
-        public GridPosition GetGridPosition(Vector3 worldPosition)
-        {
-            return _buildingGrid.WorldToGrid(worldPosition);
-        }
-
-        public Vector3 GetSnappedWorldPosition(GridPosition position)
-        {
-            return _buildingGrid.GridToWorld(position);
         }
 
         public bool CanPlace(GridPosition position)
         {
-            return !_gridOccupancy.IsOccupied(position);
+            return !_buildingRegistry.IsOccupied(position);
         }
     }
 }

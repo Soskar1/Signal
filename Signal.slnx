@@ -1,7 +1,7 @@
 ﻿<Solution>
+  <Project Path="Signal.Core.Building.csproj" />
   <Project Path="Signal.Core.Economy.csproj" />
   <Project Path="Signal.Core.Entities.csproj" />
-  <Project Path="Signal.Core.Building.csproj" />
   <Project Path="Signal.Core.Gameplay.csproj" />
   <Project Path="Signal.Core.World.csproj" />
   <Project Path="Assembly-CSharp.csproj" />

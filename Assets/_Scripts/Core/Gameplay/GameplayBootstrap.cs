@@ -8,10 +8,12 @@ namespace Signal.Core.Gameplay
     {
         [SerializeField] private EnemySpawnerConfiguration _initialSpawnerConfiguration;
         [SerializeField] private EnemySpawner _enemySpawner;
+        [SerializeField] private EnemyAi _ai;
 
         public void Initialize()
         {
             _enemySpawner.Configure(_initialSpawnerConfiguration);
+            _ai.Initialize();
         }
     }
 }

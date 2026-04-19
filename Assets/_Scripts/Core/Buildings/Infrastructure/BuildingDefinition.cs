@@ -22,7 +22,7 @@ namespace Signal.Core.Buildings
         [SerializeField] private bool _isConstructable;
         [SerializeField] private int _health;
 
-        public string Id => _id.Id;
+        public BuildingId Id => _id;
         public string DisplayName => _displayName;
         public string Description => _description;
         public Sprite BaseSprite => _baseSprite;

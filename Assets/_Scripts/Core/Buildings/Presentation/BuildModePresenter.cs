@@ -11,19 +11,21 @@ namespace Signal.Core.Buildings.Presentation
     {
         [SerializeField] private GhostBuildingPresenter _ghostBuilding;
 
-        private BuildingSpawner _BuildingSpawner;
+        private BuildingSpawner _buildingSpawner;
 
         private IInputReader _inputReader;
         private bool _readMouseInput = false;
 
         private BuildingDefinition _currentBuilding;
+        private GridSnapper _gridSnapper;
         private GridPosition _currentBuildingPosition;
 
         [Inject]
-        public void Inject(IInputReader inputReader, BuildingSpawner BuildingSpawner)
+        public void Inject(IInputReader inputReader, BuildingSpawner buildingSpawner, GridSnapper gridSnapper)
         {
             _inputReader = inputReader;
-            _BuildingSpawner = BuildingSpawner;
+            _buildingSpawner = buildingSpawner;
+            _gridSnapper = gridSnapper;
         }
 
         public void Update()
@@ -35,14 +37,14 @@ namespace Signal.Core.Buildings.Presentation
 
             var screenMousePosition = _inputReader.MousePosition;
             var mouseWorldPosition = Camera.main.ScreenToWorldPoint(screenMousePosition);
-            _currentBuildingPosition = _BuildingSpawner.GetGridPosition(mouseWorldPosition);
+            _currentBuildingPosition = _gridSnapper.GetGridPosition(mouseWorldPosition);
 
-            var snappedPosition = _BuildingSpawner.GetSnappedWorldPosition(_currentBuildingPosition);
+            var snappedPosition = _gridSnapper.GetSnappedWorldPosition(_currentBuildingPosition);
             _ghostBuilding.transform.position = new Vector2(snappedPosition.x, snappedPosition.y);
 
             _ghostBuilding.DisplayAsValid();
             
-            var canPlace = _BuildingSpawner.CanPlace(_currentBuildingPosition);
+            var canPlace = _buildingSpawner.CanPlace(_currentBuildingPosition);
             if (!canPlace)
             {
                 _ghostBuilding.DisplayAsInvalid();
@@ -71,7 +73,7 @@ namespace Signal.Core.Buildings.Presentation
 
         private void Build()
         {
-            _BuildingSpawner.Spawn(_currentBuildingPosition, _currentBuilding.Id);
+            _buildingSpawner.Spawn(_currentBuildingPosition, _currentBuilding.Id);
             _currentBuilding = null;
         }
     }

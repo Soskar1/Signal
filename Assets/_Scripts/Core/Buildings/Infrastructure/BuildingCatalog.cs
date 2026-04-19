@@ -11,7 +11,7 @@ namespace Signal.Core.Buildings.Infrastructure
 
         public BuildingCatalog(IEnumerable<BuildingDefinition> buildingDefinitions)
         {
-            _buildingData = buildingDefinitions.ToDictionary(definition => definition.Id, definition => definition);
+            _buildingData = buildingDefinitions.ToDictionary(definition => definition.Id.Id, definition => definition);
         }
 
         public BuildingDefinition Get(string id) => _buildingData[id];
