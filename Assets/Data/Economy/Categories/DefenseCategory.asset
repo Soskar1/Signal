@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: DefenseCategory
   m_EditorClassIdentifier: Signal.Core.Economy::Signal.Core.Economy.Infrastructure.ResourceCategoryDefinition
   _category: 2
-  _icon: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 7c0643898876c2542a27ffc8db89e398, type: 3}

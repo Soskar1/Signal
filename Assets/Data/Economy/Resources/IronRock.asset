@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Signal.Core.Economy::Signal.Core.Economy.Infrastructure.ResourceDefinition
   _resourceId: {fileID: 11400000, guid: e525ed4d6ee62434ea278ba775a51ad7, type: 2}
   _displayName: Iron Rock
-  _sprite: {fileID: 0}
+  _sprite: {fileID: 21300000, guid: 3f4006f6c53729a45883812656ea0982, type: 3}
   _category: 0

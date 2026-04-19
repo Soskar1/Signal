@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: RawCategory
   m_EditorClassIdentifier: Signal.Core.Economy::Signal.Core.Economy.Infrastructure.ResourceCategoryDefinition
   _category: 0
-  _icon: {fileID: 0}
+  _icon: {fileID: 21300000, guid: cdcf0209c01e5f64dbb9cce8d6f673e2, type: 3}

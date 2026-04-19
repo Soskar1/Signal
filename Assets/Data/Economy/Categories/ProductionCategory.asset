@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: ProductionCategory
   m_EditorClassIdentifier: Signal.Core.Economy::Signal.Core.Economy.Infrastructure.ResourceCategoryDefinition
   _category: 1
-  _icon: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 8791ae7d8657b384fbdf98bcdea63162, type: 3}

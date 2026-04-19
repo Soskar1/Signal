@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Signal.Core.Economy::Signal.Core.Economy.Infrastructure.ResourceDefinition
   _resourceId: {fileID: 11400000, guid: 28de9ba1b0c0a414e9dcdf4911b6d0e8, type: 2}
   _displayName: Bullet
-  _sprite: {fileID: 0}
+  _sprite: {fileID: 21300000, guid: a98fb1f2bed645745a347dad34f34bc3, type: 3}
   _category: 2
