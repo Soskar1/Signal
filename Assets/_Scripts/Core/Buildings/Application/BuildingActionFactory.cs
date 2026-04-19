@@ -18,6 +18,7 @@ namespace Signal.Core.Buildings.Application
             return definition switch
             {
                 IncreaseResourceActionDefinition increase => new IncreaseResourceAction(increase.ResourceId, increase.Amount, increase.CooldownInSeconds, _resourceWallet),
+                ResourceConvertionActionDefinition convertion => new ResourceConvertionAction(convertion.From, convertion.To, convertion.Amount, convertion.CooldownInSeconds, _resourceWallet),
                 _ => new EmptyAction()
             };
         }

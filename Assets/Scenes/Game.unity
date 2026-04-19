@@ -3613,6 +3613,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 808d19568e29c2648b3e7479993aeb3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Signal.Core.Gameplay::Signal.Core.Gameplay.GameplayBootstrap
+  _startingResourceConfiguration: {fileID: 11400000, guid: 73e74fc1d1fd3b04b8efe5fd0087c356, type: 2}
   _initialSpawnerConfiguration: {fileID: 11400000, guid: 005e9915eda79bb49b7bec519e2fae3c, type: 2}
   _enemySpawner: {fileID: 969288227}
   _targetBuildingId: {fileID: 11400000, guid: 99bb63a737779054bb132774c7e55f2e, type: 2}

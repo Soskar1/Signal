@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Signal.Core.Buildings.Infrastructure
 {
-    [CreateAssetMenu(fileName = "IncreaseResourceAction", menuName = "Signal/Buildings/Actions/Increase Resource")]
+    [CreateAssetMenu(fileName = "ResourceConvertionAction", menuName = "Signal/Buildings/Actions/Resource Convertion")]
     internal class ResourceConvertionActionDefinition : BuildingActionDefinition
     {
         [SerializeField] private ResourceId _from;
