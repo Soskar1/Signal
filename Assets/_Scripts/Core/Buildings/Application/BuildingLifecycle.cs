@@ -27,9 +27,7 @@ namespace Signal.Core.Buildings.Application
         {
             if (!_buildingRegistry.TryGet(args.OwnerId, out var building))
                 return;
-
-            Debug.Log($"{building.Id.name} received damage! Current hp: {args.Current}");
-
+             
             if (!args.IsDead)
                 return;
 
