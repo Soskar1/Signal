@@ -51,11 +51,11 @@ namespace Signal.Core.Buildings.Application
 
             var healthOwnerId = _healthApi.Register(definition.Health);
             var entityInstanceId = _entityInstanceIdFactory.Create(healthOwnerId);
-            var building = new Building(definition.Id, entityInstanceId, gridPosition, action);
-
-            _buildingRegistry.Add(building);
 
             var worldPosition = _gridSnapper.GetSnappedWorldPosition(gridPosition);
+            var building = new Building(definition.Id, entityInstanceId, gridPosition, worldPosition, action);
+
+            _buildingRegistry.Add(building);
 
             var presenter = GameObject.Instantiate(_buildingPresenterPrefab, worldPosition, Quaternion.identity);
             presenter.Initialize(building, definition.BaseSprite, definition.HeadSprite);

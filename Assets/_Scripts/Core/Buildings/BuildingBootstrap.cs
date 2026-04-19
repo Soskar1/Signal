@@ -26,7 +26,6 @@ namespace Signal.Core.Buildings
 
         public void Initialize()
         {
-            _buildingLifecycle.Initialize();
             _buildingPanel.Initialize();
             _buildingSpawner.Spawn(_radarSpawnpoint, _radar.Id);
             _buildingSpawner.Spawn(_landingPadSpawnpoint, _landingPad.Id);

@@ -8,18 +8,19 @@ namespace Signal.Core.Gameplay.Presentation
 {
     internal class EnemySpawner : MonoBehaviour
     {
-        [SerializeField] private EnemyAi _enemyAi;
         [SerializeField] private float _outOfScreenSpawnMargin = 1.0f;
 
         private IEntitySpawner _entitySpawner;
-
         private EnemySpawnerConfiguration _currentConfiguration;
+        private EnemyAi _enemyAi;
+
         private double _elapsedTime;
 
         [Inject]
-        public void Inject(IEntitySpawner entitySpawner)
+        public void Inject(IEntitySpawner entitySpawner, EnemyAi ai)
         {
             _entitySpawner = entitySpawner;
+            _enemyAi = ai;
         }
 
         public void Configure(EnemySpawnerConfiguration configuration)
