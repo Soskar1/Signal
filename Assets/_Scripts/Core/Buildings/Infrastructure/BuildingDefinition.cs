@@ -1,5 +1,6 @@
 using Signal.Core.Buildings.Domain;
 using Signal.Core.Buildings.Infrastructure;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Signal.Core.Buildings
@@ -21,6 +22,7 @@ namespace Signal.Core.Buildings
         [SerializeField] private BuildingActionDefinition _actionDefinition;
         [SerializeField] private bool _isConstructable;
         [SerializeField] private int _health;
+        [SerializeField] private List<ResourceCost> _buildingCost;
 
         public BuildingId Id => _id;
         public string DisplayName => _displayName;
@@ -32,5 +34,6 @@ namespace Signal.Core.Buildings
         public BuildingCategory Category => _category;
         public bool IsConstructable => _isConstructable;
         public int Health => _health;
+        public List<ResourceCost> BuildingCost => _buildingCost;
     }
 }

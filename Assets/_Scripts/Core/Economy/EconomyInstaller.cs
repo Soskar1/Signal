@@ -16,6 +16,7 @@ namespace Signal.Core.Economy
         public void Install(ContainerBuilder containerBuilder)
         {
             containerBuilder.RegisterFactory(container => new ResourceCatalog(_resources), Lifetime.Singleton, Resolution.Lazy);
+            containerBuilder.RegisterFactory<IResourceQuery>(container => container.Resolve<ResourceCatalog>(), Lifetime.Singleton, Resolution.Lazy);
             containerBuilder.RegisterValue(_categories);
             containerBuilder.RegisterFactory<IResourceWallet>(container => new ResourceWallet(container.Resolve<ResourceCatalog>()), Lifetime.Singleton, Resolution.Lazy);
         }

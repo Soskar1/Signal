@@ -22,3 +22,8 @@ MonoBehaviour:
   _actionDefinition: {fileID: 0}
   _isConstructable: 1
   _health: 10
+  _buildingCost:
+  - _resourceId: {fileID: 11400000, guid: 2db53ac09d4e0984e9802d3259d78a47, type: 2}
+    _cost: 5
+  - _resourceId: {fileID: 11400000, guid: 8ab7e395e1618414abef055deaa8a054, type: 2}
+    _cost: 10
