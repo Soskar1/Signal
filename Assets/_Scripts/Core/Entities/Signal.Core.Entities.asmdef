@@ -1,0 +1,17 @@
+{
+    "name": "Signal.Core.Entities",
+    "rootNamespace": "",
+    "references": [
+        "GUID:1530a967b84cfb44dbdd5e8a1989764f",
+        "GUID:d52bc636ce56f1947ab6611ba70399dc"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

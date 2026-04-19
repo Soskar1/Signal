@@ -1,16 +1,16 @@
 ﻿using Reflex.Core;
 using Reflex.Enums;
 using Signal.Core.Player.Application;
-using UnityEngine;
 using Resolution = Reflex.Enums.Resolution;
 
 namespace Signal.Core.Player
 {
-    public class PlayerInstaller : MonoBehaviour
+    public static class PlayerInstaller
     {
-        public void Install(ContainerBuilder containerBuilder)
+        public static ContainerBuilder InstallPlayer(this ContainerBuilder containerBuilder)
         {
             containerBuilder.RegisterFactory<IInputReader>(container => new InputReader(), Lifetime.Singleton, Resolution.Lazy);
+            return containerBuilder;
         }
     }
 }

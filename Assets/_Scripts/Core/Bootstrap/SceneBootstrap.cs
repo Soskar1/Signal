@@ -1,5 +1,6 @@
 ﻿using Signal.Core.Buildings;
 using Signal.Core.Economy;
+using Signal.Core.Entities;
 using UnityEngine;
 
 namespace Signal.Core.Bootstrap
@@ -8,11 +9,13 @@ namespace Signal.Core.Bootstrap
     {
         [SerializeField] private EconomyBootstrap _economyBootstrap;
         [SerializeField] private BuildingBootstrap _buildingBootstrap;
+        [SerializeField] private EntityBootstrap _entityBootstrap;
 
         public void Start()
         {
             _economyBootstrap.Initialize();
             _buildingBootstrap.Initialize();
+            _entityBootstrap.Initialize();
         }
     }
 }

@@ -217,7 +217,7 @@ Transform:
   m_GameObject: {fileID: 169124959}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -7.25, y: 1.43, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -721,7 +721,7 @@ Transform:
   m_Children:
   - {fileID: 1132357655}
   - {fileID: 82495993}
-  - {fileID: 1685450850}
+  - {fileID: 1986369013}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &586808963
@@ -738,7 +738,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Signal.Core.SceneInstaller
   _economyInstaller: {fileID: 1132357656}
   _buildingInstaller: {fileID: 82495994}
-  _playerInstaller: {fileID: 1685450851}
+  _entityInstaller: {fileID: 1986369014}
 --- !u!114 &586808964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -753,6 +753,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Signal.Core.Bootstrap.SceneBootstrap
   _economyBootstrap: {fileID: 1132357657}
   _buildingBootstrap: {fileID: 82495995}
+  _entityBootstrap: {fileID: 1986369015}
+  _entityToSpawn: {fileID: 11400000, guid: 90c8c7e54f9d12743841580084105ed5, type: 2}
+  _entitySpawnpoint: {fileID: 169124960}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -829,6 +832,37 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 619394800}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &645505415
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 645505416}
+  m_Layer: 0
+  m_Name: EntityPoolParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &645505416
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 645505415}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -1895,50 +1929,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1685450849
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1685450850}
-  - component: {fileID: 1685450851}
-  m_Layer: 0
-  m_Name: PlayerInstaller
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1685450850
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1685450849}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 586808962}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1685450851
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1685450849}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20941f59570693c42a6fa6be28739557, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Signal.Core.Player::Signal.Core.Player.PlayerInstaller
 --- !u!1 &1765280014
 GameObject:
   m_ObjectHideFlags: 0
@@ -2103,6 +2093,69 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1986369012
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1986369013}
+  - component: {fileID: 1986369014}
+  - component: {fileID: 1986369015}
+  m_Layer: 0
+  m_Name: EntityInstaller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1986369013
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1986369012}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 586808962}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1986369014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1986369012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d817bbeb6d5cc44e863ab5389a0a2a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Signal.Core.Entities::Signal.Core.Entities.EntityInstaller
+  _entityDefinitions:
+  - {fileID: 11400000, guid: 7fc18e8d0e23a1e4197e98c8b19c9de1, type: 2}
+  - {fileID: 11400000, guid: f1b9b65e46665b04c8e08cdf19bac34b, type: 2}
+  - {fileID: 11400000, guid: 84bea34936176f74ea2265373dbd9a1c, type: 2}
+  _entityPrefab: {fileID: 6362644974208328493, guid: cfef626c040a07843b41c7f482180a7c, type: 3}
+  _entityPoolParent: {fileID: 645505416}
+--- !u!114 &1986369015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1986369012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 360af373d2f2c264ca593c4b1d0d19e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Signal.Core.Entities::Signal.Core.Entities.EntityBootstrap
 --- !u!1 &1999362906
 GameObject:
   m_ObjectHideFlags: 0
@@ -2190,3 +2243,4 @@ SceneRoots:
   - {fileID: 1558351389}
   - {fileID: 169124960}
   - {fileID: 201384416}
+  - {fileID: 645505416}
