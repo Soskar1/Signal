@@ -27,7 +27,10 @@ namespace Signal.Core.Buildings.Application
         {
             if (!_buildingRegistry.TryGet(args.OwnerId, out var building))
                 return;
-             
+
+            var buildingPresenter = _presenterRegistry.Get(building.InstanceId);
+            buildingPresenter.UpdateHealthBar(args.Current, args.Max);
+
             if (!args.IsDead)
                 return;
 

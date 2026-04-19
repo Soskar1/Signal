@@ -7,6 +7,7 @@ namespace Signal.Core.Buildings.Presentation
     {
         [SerializeField] private SpriteRenderer _baseRenderer;
         [SerializeField] private SpriteRenderer _headRenderer;
+        [SerializeField] private BuildingHealthBar _buildingHealthBar;
 
         private Building _building;
 
@@ -25,6 +26,11 @@ namespace Signal.Core.Buildings.Presentation
             }
 
             _building.Tick(Time.deltaTime);
+        }
+
+        public void UpdateHealthBar(int currentHealth, int maxHealth)
+        {
+            _buildingHealthBar.UpdateHealthBar(currentHealth, maxHealth);
         }
     }
 }
