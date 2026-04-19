@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ccafedda098f504098c70a33c262ce0, type: 3}
+  m_Name: EnemySpawnerConfiguration
+  m_EditorClassIdentifier: Signal.Core.Gameplay::Signal.Core.Gameplay.Infrastructure.EnemySpawnerConfiguration
+  _spawnInterval: 3
+  _entities:
+  - {fileID: 11400000, guid: 910e708868d2fbd4a84aebcd1a3de840, type: 2}
+  - {fileID: 11400000, guid: 77efa5df721787545bbd72b790141f21, type: 2}
+  - {fileID: 11400000, guid: 90c8c7e54f9d12743841580084105ed5, type: 2}

@@ -691,6 +691,7 @@ Transform:
   - {fileID: 1132357655}
   - {fileID: 82495993}
   - {fileID: 1986369013}
+  - {fileID: 2133530542}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &586808963
@@ -723,6 +724,7 @@ MonoBehaviour:
   _economyBootstrap: {fileID: 1132357657}
   _buildingBootstrap: {fileID: 82495995}
   _entityBootstrap: {fileID: 1986369015}
+  _gameplayBootstrap: {fileID: 2133530543}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1063,6 +1065,51 @@ MonoBehaviour:
   _image: {fileID: 1451658318}
   _displayName: {fileID: 1140196701}
   _description: {fileID: 1173252470}
+--- !u!1 &969288226
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 969288228}
+  - component: {fileID: 969288227}
+  m_Layer: 0
+  m_Name: EnemySpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &969288227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 969288226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c25747d7ed886bc4d8b3c8185faeaaf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Signal.Core.Gameplay::Signal.Core.Gameplay.Presentation.EnemySpawner
+  _outOfScreenSpawnMargin: 1
+--- !u!4 &969288228
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 969288226}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1114730787
 GameObject:
   m_ObjectHideFlags: 0
@@ -2198,6 +2245,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1999362906}
   m_CullTransparentMesh: 1
+--- !u!1 &2133530541
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2133530542}
+  - component: {fileID: 2133530543}
+  m_Layer: 0
+  m_Name: GameplayInstaller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2133530542
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2133530541}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 586808962}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2133530543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2133530541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 808d19568e29c2648b3e7479993aeb3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Signal.Core.Gameplay::Signal.Core.Gameplay.GameplayBootstrap
+  _initialSpawnerConfiguration: {fileID: 11400000, guid: 005e9915eda79bb49b7bec519e2fae3c, type: 2}
+  _enemySpawner: {fileID: 969288227}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -2210,3 +2303,4 @@ SceneRoots:
   - {fileID: 1558351389}
   - {fileID: 201384416}
   - {fileID: 645505416}
+  - {fileID: 969288228}
