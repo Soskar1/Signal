@@ -1,4 +1,5 @@
 ﻿using Signal.Core.Buildings.Domain;
+using UnityEditor.Animations;
 using UnityEngine;
 
 namespace Signal.Core.Buildings.Presentation
@@ -8,14 +9,16 @@ namespace Signal.Core.Buildings.Presentation
         [SerializeField] private SpriteRenderer _baseRenderer;
         [SerializeField] private SpriteRenderer _headRenderer;
         [SerializeField] private BuildingHealthBar _buildingHealthBar;
+        [SerializeField] private Animator _animator;
 
         private Building _building;
 
-        public void Initialize(Building building, Sprite baseSprite, Sprite headSprite)
+        public void Initialize(Building building, Sprite baseSprite, Sprite headSprite, AnimatorController animatorController)
         {
             _building = building;
             _baseRenderer.sprite = baseSprite;
             _headRenderer.sprite = headSprite;
+            _animator.runtimeAnimatorController = animatorController;
         }
 
         public void Update()

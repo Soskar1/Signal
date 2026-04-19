@@ -139,3 +139,4 @@ MonoBehaviour:
   _speed: 8
   _hitDistance: 0.15
   _damage: 1
+  _lifeTime: 1.5

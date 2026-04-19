@@ -19,6 +19,7 @@ MonoBehaviour:
   _headSprite: {fileID: 0}
   _displaySprite: {fileID: 1074756794, guid: 4f6dae1291e29834e8938301150dbc32, type: 3}
   _category: 2
+  _animatorController: {fileID: 9100000, guid: fec74dc0afaa64c4f819560d92ea9738, type: 2}
   _actionDefinition: {fileID: 11400000, guid: bf968d41dec728545a7f409866916ee6, type: 2}
   _isConstructable: 1
   _health: 10

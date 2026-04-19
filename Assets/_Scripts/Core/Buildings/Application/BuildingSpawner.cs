@@ -59,7 +59,7 @@ namespace Signal.Core.Buildings.Application
             _buildingRegistry.Add(building);
 
             var presenter = GameObject.Instantiate(_buildingPresenterPrefab, worldPosition, Quaternion.identity);
-            presenter.Initialize(building, definition.BaseSprite, definition.HeadSprite);
+            presenter.Initialize(building, definition.BaseSprite, definition.HeadSprite, definition.AnimatorController);
 
             _buildingPresenterRegistry.Add(entityInstanceId, presenter);
         }

@@ -9,6 +9,7 @@ namespace Signal.Core.Buildings.Presentation
         [SerializeField] private float _speed = 3f;
         [SerializeField] private float _hitDistance = 0.15f;
         [SerializeField] private int _damage = 1;
+        [SerializeField] private float _lifeTime = 1.5f;
 
         private EntityInstanceId _target;
         private IEntityQuery _entityQuery;
@@ -21,6 +22,8 @@ namespace Signal.Core.Buildings.Presentation
             _target = target;
             _entityQuery = entityQuery;
             _healthApi = healthApi;
+
+            Destroy(gameObject, _lifeTime);
         }
 
         public void Update()
@@ -51,7 +54,7 @@ namespace Signal.Core.Buildings.Presentation
             if (Vector2.Distance(transform.position, targetPosition) < _hitDistance)
             {
                 _healthApi.TryApplyDamage(_target.HealthOwnerId, _damage);
-                GameObject.Destroy(gameObject);
+                Destroy(gameObject);
             }
         }
     }
