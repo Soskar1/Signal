@@ -15,3 +15,4 @@ MonoBehaviour:
   _id: {fileID: 11400000, guid: 910e708868d2fbd4a84aebcd1a3de840, type: 2}
   _sprite: {fileID: 21300000, guid: 357a9b6001d8f4749ab2b8f743796999, type: 3}
   _health: 3
+  _moveSpeed: 1

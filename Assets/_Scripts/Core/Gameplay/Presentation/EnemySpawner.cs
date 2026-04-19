@@ -8,6 +8,7 @@ namespace Signal.Core.Gameplay.Presentation
 {
     internal class EnemySpawner : MonoBehaviour
     {
+        [SerializeField] private EnemyAi _enemyAi;
         [SerializeField] private float _outOfScreenSpawnMargin = 1.0f;
 
         private IEntitySpawner _entitySpawner;
@@ -52,7 +53,8 @@ namespace Signal.Core.Gameplay.Presentation
 
             var position = OffscreenSpawnPositionGenerator.Generate(Camera.main, _outOfScreenSpawnMargin);
 
-            _entitySpawner.Spawn(idToSpawn, position);
+            var instanceId = _entitySpawner.Spawn(idToSpawn, position);
+            _enemyAi.RegisterEnemy(instanceId);
         }
     }
 }

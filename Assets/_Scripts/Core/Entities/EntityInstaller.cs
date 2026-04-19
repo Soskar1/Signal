@@ -35,6 +35,12 @@ namespace Signal.Core.Entities
                     container.Resolve<EntityDefinitionCatalog>(),
                     container.Resolve<IHealthApi>()),
                 Lifetime.Singleton, Resolution.Lazy);
+
+            containerBuilder.RegisterFactory<IEntityMovement>(container => new EntityMovement(
+                    container.Resolve<EntityRegistry>(),
+                    container.Resolve<EntityDefinitionCatalog>(),
+                    container.Resolve<EntityPresenterRegistry>()),
+                Lifetime.Singleton, Resolution.Lazy);
         }
     }
 }
