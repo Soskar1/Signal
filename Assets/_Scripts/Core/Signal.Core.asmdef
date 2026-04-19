@@ -1,0 +1,22 @@
+{
+    "name": "Signal.Core",
+    "rootNamespace": "",
+    "references": [
+        "GUID:1530a967b84cfb44dbdd5e8a1989764f",
+        "GUID:9b2d63cf516007a4da4a953e82d0c8b7",
+        "GUID:e5cdb0330c92069499e838ef89cdc664",
+        "GUID:2ee0f3abd4f9ab9428685ee1367341f6",
+        "GUID:7ef0629f4ae00264b809277f99ecf80a",
+        "GUID:7dd7bf95d2dcdce4cafeff3497dac3b6",
+        "GUID:d52bc636ce56f1947ab6611ba70399dc"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

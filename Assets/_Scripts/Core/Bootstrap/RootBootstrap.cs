@@ -1,10 +1,18 @@
-﻿using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using Reflex.Attributes;
+using UnityEngine;
 
 namespace Signal.Core.Bootstrap
 {
     internal class RootBootstrap : MonoBehaviour
     {
-        public void Start() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        private Signal _signal;
+
+        [Inject]
+        public void Inject(Signal signal)
+        {
+            _signal = signal;
+        }
+
+        public void Start() => _signal.TransitionToGameScene();
     }
 }
