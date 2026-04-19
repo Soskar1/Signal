@@ -187,8 +187,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a1b8291ffe0b554ab1e397e9d7029e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Signal.Core.Building::Signal.Core.Buildings.BuildingBootstrap
-  _radarSpawnpoint: {fileID: 169124960}
+  _radarSpawnpoint: {x: 0, y: 0}
+  _landingPadSpawnpoint: {x: 1, y: 0}
   _radar: {fileID: 11400000, guid: ebbd87f85146ebc4b8193e97b7b65933, type: 2}
+  _landingPad: {fileID: 11400000, guid: 1beac0bd7dcdd604fa0e85121e809344, type: 2}
   _buildingPanel: {fileID: 1114730789}
 --- !u!1 &169124959
 GameObject:

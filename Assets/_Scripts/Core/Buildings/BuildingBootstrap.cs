@@ -7,8 +7,10 @@ namespace Signal.Core.Buildings
 {
     public class BuildingBootstrap : MonoBehaviour
     {
-        [SerializeField] private Transform _radarSpawnpoint;
+        [SerializeField] private Vector2 _radarSpawnpoint;
+        [SerializeField] private Vector2 _landingPadSpawnpoint;
         [SerializeField] private BuildingDefinition _radar;
+        [SerializeField] private BuildingDefinition _landingPad;
 
         [SerializeField] private BuildingPanelPresenter _buildingPanel;
 
@@ -23,7 +25,8 @@ namespace Signal.Core.Buildings
         public void Initialize()
         {
             _buildingPanel.Initialize();
-            _buildingPlacement.PlaceBuilding(_radarSpawnpoint.position, _radar.Id);
+            _buildingPlacement.PlaceBuilding(_radarSpawnpoint, _radar.Id);
+            _buildingPlacement.PlaceBuilding(_landingPadSpawnpoint, _landingPad.Id);
         }
     }
 }
