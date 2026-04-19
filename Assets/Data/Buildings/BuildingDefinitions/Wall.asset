@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bea1711306430b44ba242e455b4a597, type: 3}
+  m_Name: Wall
+  m_EditorClassIdentifier: Signal.Core.Building::Signal.Core.Buildings.BuildingData
+  _id: {fileID: 11400000, guid: 2f5d23ac016d3d64fae42cc59d6ac115, type: 2}
+  _displayName: Wall
+  _description: Test
+  _baseSprite: {fileID: 21300000, guid: b341ce4865842dc4c9000a20d895863b, type: 3}
+  _headSprite: {fileID: 0}
+  _displaySprite: {fileID: 21300000, guid: b341ce4865842dc4c9000a20d895863b, type: 3}
+  _category: 1
+  _actionDefinition: {fileID: 0}
+  _isConstructable: 1
+  _health: 25
+  _buildingCost:
+  - _resourceId: {fileID: 11400000, guid: a3c341acfebb3654e86b3506e4bb3e1a, type: 2}
+    _cost: 5

@@ -309,6 +309,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4e6d18c5e8d74d641a9accfe6b1f9eeb, type: 2}
   - {fileID: 11400000, guid: 92e0f2859cd2fea4f854393b1427d861, type: 2}
   - {fileID: 11400000, guid: 03c75de693fb95242bb79559b6de38af, type: 2}
+  - {fileID: 11400000, guid: 4bd074bbdfd52e246aaf70949a5c37c5, type: 2}
+  - {fileID: 11400000, guid: b20171cbc4fbc704f95d25c4f8d08ab9, type: 2}
   _buildingCategoryDefinitions:
   - {fileID: 11400000, guid: 813ccfe4f9f71e44dbd781d4fece3d0d, type: 2}
   - {fileID: 11400000, guid: 933a7fadbc14adb4c8862fbe0b0775a0, type: 2}
