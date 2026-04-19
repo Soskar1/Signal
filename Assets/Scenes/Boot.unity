@@ -174,43 +174,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5124981376982316455, guid: be698215470030a45aee0898202bc7d1, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1674614569}
-    - targetCorrespondingSourceObject: {fileID: 5124981376982316455, guid: be698215470030a45aee0898202bc7d1, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1674614572}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be698215470030a45aee0898202bc7d1, type: 3}
---- !u!1 &1674614568 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5124981376982316455, guid: be698215470030a45aee0898202bc7d1, type: 3}
-  m_PrefabInstance: {fileID: 1674614567}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1674614569
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1674614568}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62a68b2f23b25b241823a19d7c644c22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Signal.Core.Bootstrap.RootInstaller
---- !u!114 &1674614572
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1674614568}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4d866525e0fb01419e9579c0f4e8dfe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Signal.Core.Bootstrap.RootBootstrap
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -19,12 +19,12 @@ namespace Signal.Core.Entities.Application
 
         public Entity Create(EntityId entityId)
         {
-            var definition = _entityCatalog.Get(entityId.Id);
+            var definition = _entityCatalog.Get(entityId.RawId);
 
             var healthOwnerId = _healthApi.Register(definition.Health);
             var instanceId = _instanceIdFactory.Create(healthOwnerId);
 
-            return new Entity(instanceId, entityId);
+            return new Entity(instanceId, definition);
         }
     }
 }

@@ -24,12 +24,14 @@ namespace Signal.Core.World.Infrastructure
             _healths.Remove(ownerId);
         }
 
-        public Health Get(HealthOwnerId ownerId)
+        public bool TryGet(HealthOwnerId ownerId, out Health health)
         {
-            if (!_healths.TryGetValue(ownerId, out var state))
-                throw new KeyNotFoundException($"Health for owner '{ownerId}' was not found.");
+            if (_healths.TryGetValue(ownerId, out health))
+            {
+                return true;
+            }
 
-            return state;
+            return false;
         }
     }
 }

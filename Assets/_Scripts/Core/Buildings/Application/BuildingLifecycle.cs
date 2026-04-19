@@ -5,28 +5,30 @@ using UnityEngine;
 
 namespace Signal.Core.Buildings.Application
 {
-    internal class BuildingLifecycle : IDisposable
+    internal class BuildingLifecycle : IBuildingObserver, IDisposable
     {
         private readonly BuildingRegistry _buildingRegistry;
         private readonly BuildingPresenterRegistry _presenterRegistry;
         private readonly IHealthApi _healthApi;
+
+        public event EventHandler<BuildingDestroyedEventArgs> BuildingDestroyed;
 
         public BuildingLifecycle(BuildingRegistry buildingRegistry, BuildingPresenterRegistry presenterRegistry, IHealthApi healthApi)
         {
             _buildingRegistry = buildingRegistry;
             _presenterRegistry = presenterRegistry;
             _healthApi = healthApi;
-        }
 
-        public void Initialize()
-        {
             _healthApi.HealthChanged += HandleHealthChanged;
         }
 
         private void HandleHealthChanged(object _, HealthChangedEventArgs args)
         {
-            if (!_buildingRegistry.TryGetByHealthOwner(args.OwnerId, out var building))
+            if (!_buildingRegistry.TryGet(args.OwnerId, out var building))
                 return;
+
+            var buildingPresenter = _presenterRegistry.Get(building.InstanceId);
+            buildingPresenter.UpdateHealthBar(args.Current, args.Max);
 
             if (!args.IsDead)
                 return;
@@ -39,6 +41,7 @@ namespace Signal.Core.Buildings.Application
             var buildingPresenter = _presenterRegistry.Get(instanceId);
 
             _healthApi.Unregister(instanceId.HealthOwnerId);
+            var building = _buildingRegistry.Get(instanceId);
             _buildingRegistry.Remove(instanceId);
 
             if (_presenterRegistry.TryGet(instanceId, out var presenter))
@@ -46,6 +49,10 @@ namespace Signal.Core.Buildings.Application
                 _presenterRegistry.Remove(instanceId);
                 GameObject.Destroy(presenter.gameObject);
             }
+
+            var buildingInfo = new BuildingInfo(instanceId, building.Id, building.WorldPosition);
+            var args = new BuildingDestroyedEventArgs(buildingInfo);
+            BuildingDestroyed?.Invoke(this, args);
         }
 
         public void Dispose()

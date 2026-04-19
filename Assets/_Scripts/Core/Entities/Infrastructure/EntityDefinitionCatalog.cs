@@ -11,7 +11,7 @@ namespace Signal.Core.Entities.Infrastructure
 
         public EntityDefinitionCatalog(IEnumerable<EntityDefinition> buildingDefinitions)
         {
-            _entities = buildingDefinitions.ToDictionary(definition => definition.Id, definition => definition);
+            _entities = buildingDefinitions.ToDictionary(definition => definition.Id.RawId, definition => definition);
         }
 
         public EntityDefinition Get(string id) => _entities[id];

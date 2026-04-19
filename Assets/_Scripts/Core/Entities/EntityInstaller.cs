@@ -41,6 +41,10 @@ namespace Signal.Core.Entities
                     container.Resolve<EntityDefinitionCatalog>(),
                     container.Resolve<EntityPresenterRegistry>()),
                 Lifetime.Singleton, Resolution.Lazy);
+
+            containerBuilder.RegisterFactory<IEntityQuery>(container => new EntityQuery(
+                    container.Resolve<EntityRegistry>()),
+                Lifetime.Singleton, Resolution.Lazy);
         }
     }
 }

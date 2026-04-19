@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4426357421016745770}
   - component: {fileID: 8529845030162206220}
+  - component: {fileID: 6554055850877527821}
+  - component: {fileID: 2185064853388795029}
   m_Layer: 0
   m_Name: RootScope
   m_TagString: Untagged
@@ -44,3 +46,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5312032623c34414a54ea00e35a7eb8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Reflex::Reflex.Core.ContainerScope
+--- !u!114 &6554055850877527821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5124981376982316455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62a68b2f23b25b241823a19d7c644c22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Signal.Core.Bootstrap.RootInstaller
+  _mainMenuSceneBuildIndex: 1
+  _gameSceneBuildIndex: 2
+--- !u!114 &2185064853388795029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5124981376982316455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4d866525e0fb01419e9579c0f4e8dfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Signal.Core.Bootstrap.RootBootstrap

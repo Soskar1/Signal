@@ -7,6 +7,6 @@ namespace Signal.Core.Entities
     {
         [SerializeField] private string _id;
 
-        public string Id => _id;
+        public string RawId => _id;
     }
 }

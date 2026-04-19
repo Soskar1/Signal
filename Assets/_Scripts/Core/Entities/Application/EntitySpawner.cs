@@ -37,7 +37,7 @@ namespace Singal.Core.Entities.Application
             var entity = _entityFactory.Create(entityId);
             _entityRegistry.Add(entity);
 
-            var definition = _entityCatalog.Get(entityId.Id);
+            var definition = _entityCatalog.Get(entityId.RawId);
             var presenter = _presenterPool.Get(entityId);
 
             presenter.Initialize(entity, definition.Sprite);

@@ -1,20 +1,27 @@
+using Signal.Core.Entities.Infrastructure;
 using Signal.Core.World;
 
 namespace Signal.Core.Entities.Domain
 {
-    public class Entity
+    internal class Entity
     {
         private readonly EntityInstanceId _instanceId;
-        private readonly EntityId _definitionId;
+        private readonly EntityId _id;
 
         public EntityInstanceId InstanceId => _instanceId;
-        public EntityId DefinitionId => _definitionId;
+        public EntityId DefinitionId => _id;
         public HealthOwnerId HealthOwnerId => InstanceId.HealthOwnerId;
+        public int AttackDamage { get; }
+        public float AttackSpeed { get; }
+        public float AttackDistance { get; }
 
-        public Entity(EntityInstanceId instanceId, EntityId definitionId)
+        public Entity(EntityInstanceId instanceId, EntityDefinition entityDefinition)
         {
             _instanceId = instanceId;
-            _definitionId = definitionId;
+            _id = entityDefinition.Id;
+            AttackDamage = entityDefinition.AttackDamage;
+            AttackSpeed = entityDefinition.AttackSpeed;
+            AttackDistance = entityDefinition.AttackDistance;
         }
     }
 }

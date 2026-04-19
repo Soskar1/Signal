@@ -18,10 +18,10 @@ namespace Signal.Core.Entities.Application
 
         public EntityPresenter Get(EntityId entityId)
         {
-            if (!_pool.TryGetValue(entityId.Id, out var queue))
+            if (!_pool.TryGetValue(entityId.RawId, out var queue))
             {
                 queue = new Queue<EntityPresenter>();
-                _pool[entityId.Id] = queue;
+                _pool[entityId.RawId] = queue;
             }
 
             EntityPresenter presenter;
@@ -43,10 +43,10 @@ namespace Signal.Core.Entities.Application
         {
             presenter.gameObject.SetActive(false);
 
-            if (!_pool.TryGetValue(entityId.Id, out var queue))
+            if (!_pool.TryGetValue(entityId.RawId, out var queue))
             {
                 queue = new Queue<EntityPresenter>();
-                _pool[entityId.Id] = queue;
+                _pool[entityId.RawId] = queue;
             }
 
             queue.Enqueue(presenter);
