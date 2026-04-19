@@ -1,6 +1,7 @@
 ﻿using Reflex.Attributes;
 using Signal.Core.Buildings;
 using Signal.Core.Entities;
+using Signal.Core.Gameplay.Application;
 using Signal.Core.World;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,34 +12,40 @@ namespace Signal.Core.Gameplay.Presentation
     internal class EnemyAi : MonoBehaviour
     {
         [SerializeField] private BuildingId _targetBuildingId;
-        private Vector2 _target;
+        private BuildingInfo _target;
 
-        private List<EntityInstanceId> _enemies = new();
+        private List<EnemyStateMachine> _enemies = new();
         private IEntityMovement _entityMovement;
         private IBuildingQuery _buildingQuery;
+        private IEntityQuery _entityQuery;
+        private IHealthApi _healthApi;
 
         [Inject]
-        public void Inject(IEntityMovement entityMovement, IBuildingQuery buildingQuery)
+        public void Inject(IEntityMovement entityMovement, IBuildingQuery buildingQuery, IEntityQuery entityQuery, IHealthApi healthApi)
         {
             _entityMovement = entityMovement;
             _buildingQuery = buildingQuery;
+            _entityQuery = entityQuery;
+            _healthApi = healthApi;
         }
 
         public void Initialize()
         {
-            var targetBuilding = _buildingQuery.GetBuildingInfo(_targetBuildingId).FirstOrDefault();
+            _target = _buildingQuery.GetBuildingInfo(_targetBuildingId).FirstOrDefault();
 
-            if (targetBuilding == null)
+            if (_target == null)
             {
                 throw new System.Exception("Did not found a target building!");
             }
-
-            _target = targetBuilding.WorldPosition;
         }
 
         public void RegisterEnemy(EntityInstanceId enemyInstanceId)
         {
-            _enemies.Add(enemyInstanceId);
+            var attackDamage = _entityQuery.GetEntityAttackDamage(enemyInstanceId);
+            var attackSpeed = _entityQuery.GetEntityAttackSpeed(enemyInstanceId);
+
+            var stateMachine = new EnemyStateMachine(enemyInstanceId, _target, attackDamage, attackSpeed, _entityMovement, _healthApi);
+            _enemies.Add(stateMachine);
         }
 
         public void Update()
@@ -48,7 +55,7 @@ namespace Signal.Core.Gameplay.Presentation
 
             foreach (var enemy in _enemies)
             {
-                _entityMovement.MoveTowards(enemy, _target, Time.deltaTime);
+                enemy.Tick(Time.deltaTime);
             }
         }
     }

@@ -26,7 +26,7 @@ namespace Signal.Core.Entities.Application
         public void MoveTowards(EntityInstanceId entityId, Vector2 targetPosition, float deltaTime)
         {
             var entity = _entityRegistry.Get(entityId);
-            var definition = _definitionCatalog.Get(entity.DefinitionId.Id);
+            var definition = _definitionCatalog.Get(entity.DefinitionId.RawId);
             var presenter = _presenterRegistry.Get(entityId);
 
             var currentPosition = (Vector2)presenter.transform.position;

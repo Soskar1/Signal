@@ -6,6 +6,7 @@ namespace Signal.Core.Buildings
     public class BuildingInfo
     {
         public EntityInstanceId InstanceId { get; }
+        public HealthOwnerId HealthOwnerId => InstanceId.HealthOwnerId;
         public BuildingId BuildingId { get; }
         public Vector2 WorldPosition { get; }
 
