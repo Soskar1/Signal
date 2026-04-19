@@ -30,7 +30,7 @@ namespace Signal.Core.Buildings.Presentation
 
         public void Initialize()
         {
-            var buildingButtons = new Dictionary<BuildingCategory, List<BuildingButtonPresenter>>();
+            var buildingButtonsByCategory = new Dictionary<BuildingCategory, List<BuildingButtonPresenter>>();
 
             foreach (var definition in _buildingCatalog.Buildings)
             {
@@ -42,9 +42,9 @@ namespace Signal.Core.Buildings.Presentation
                 var presenter = Instantiate(_buildingButtonPrefab, _buildingButtonContainer);
                 presenter.Initialize(definition, _tooltip, _buildModePresenter);
 
-                if (!buildingButtons.TryGetValue(definition.Category, out var buttonList))
+                if (!buildingButtonsByCategory.TryGetValue(definition.Category, out var buttonList))
                 {
-                    buildingButtons.Add(definition.Category, new List<BuildingButtonPresenter>() { presenter });
+                    buildingButtonsByCategory.Add(definition.Category, new List<BuildingButtonPresenter>() { presenter });
                 }
                 else
                 {
@@ -54,7 +54,9 @@ namespace Signal.Core.Buildings.Presentation
                 presenter.gameObject.SetActive(false);
             }
 
-            var allBuildingButtons = buildingButtons.Values.SelectMany(bulidingButton => bulidingButton);
+            var allBuildingButtons = buildingButtonsByCategory.Values.SelectMany(bulidingButton => bulidingButton);
+            var categoryButtonsByDefinition = new Dictionary<BuildingCategoryDefinition, BuildingCategoryPresenter>();
+            var categoryButtonsByCategory = new Dictionary<BuildingCategory, BuildingCategoryPresenter>();
 
             foreach (var category in _buildingCategories)
             {
@@ -64,14 +66,23 @@ namespace Signal.Core.Buildings.Presentation
                 }
 
                 var categoryButton = Instantiate(_buildingCategoryPresenter, _categoryButtonContainer);
-
-                var categoryBuildingButtons = buildingButtons[category.Category];
-                var otherButtons = allBuildingButtons.Except(categoryBuildingButtons);
-                categoryButton.Initialize(category.Sprite, categoryBuildingButtons, otherButtons);
+                categoryButtonsByDefinition.Add(category, categoryButton);
+                categoryButtonsByCategory.Add(category.Category, categoryButton);
             }
 
-            var firstCategory = buildingButtons.Values.First();
-            foreach (var button in firstCategory)
+            foreach ((var category, var button) in categoryButtonsByDefinition)
+            {
+                var categoryBuildingButtons = buildingButtonsByCategory[category.Category];
+                var otherBuildingButtons = allBuildingButtons.Except(categoryBuildingButtons);
+                var otherCategoryButtons = categoryButtonsByDefinition.Values.Except(new List<BuildingCategoryPresenter>() { button });
+
+                button.Initialize(category.Sprite, categoryBuildingButtons, otherBuildingButtons, otherCategoryButtons);
+            }
+
+            (var firstCategory, var buildingButtons) = buildingButtonsByCategory.First();
+            var categoryTab = categoryButtonsByCategory[firstCategory];
+            categoryTab.ActivateTab();
+            foreach (var button in buildingButtons)
             {
                 button.gameObject.SetActive(true);
             }
