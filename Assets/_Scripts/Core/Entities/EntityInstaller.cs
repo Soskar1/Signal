@@ -23,6 +23,7 @@ namespace Signal.Core.Entities
             containerBuilder.RegisterType(typeof(EntityFactory), Lifetime.Singleton, Resolution.Lazy);
             containerBuilder.RegisterType(typeof(EntityRegistry), Lifetime.Singleton, Resolution.Lazy);
             containerBuilder.RegisterType(typeof(EntityLifecycle), Lifetime.Singleton, Resolution.Lazy);
+            containerBuilder.RegisterFactory<IEntityObserver>(container => container.Resolve<EntityLifecycle>(), Lifetime.Singleton, Resolution.Lazy);
 
             containerBuilder.RegisterType(typeof(EntityPresenterRegistry), Lifetime.Singleton, Resolution.Lazy);
             containerBuilder.RegisterFactory(container => new EntityPresenterPool(_entityPrefab, _entityPoolParent), Lifetime.Singleton, Resolution.Lazy);
@@ -43,7 +44,8 @@ namespace Signal.Core.Entities
                 Lifetime.Singleton, Resolution.Lazy);
 
             containerBuilder.RegisterFactory<IEntityQuery>(container => new EntityQuery(
-                    container.Resolve<EntityRegistry>()),
+                    container.Resolve<EntityRegistry>(),
+                    container.Resolve<EntityPresenterRegistry>()),
                 Lifetime.Singleton, Resolution.Lazy);
         }
     }

@@ -54,6 +54,7 @@ namespace Signal.Core.Gameplay
         public void OnDestroy()
         {
             _loseConditionListener.Dispose();
+            _enemyAi.Dispose();
         }
     }
 }

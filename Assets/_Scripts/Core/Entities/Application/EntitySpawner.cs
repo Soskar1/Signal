@@ -50,7 +50,13 @@ namespace Singal.Core.Entities.Application
 
         public void Release(EntityInstanceId instanceId)
         {
-            var entity = _entityRegistry.Get(instanceId);
+            var success = _entityRegistry.TryGet(instanceId, out var entity);
+
+            if (!success)
+            {
+                Debug.LogWarning("Entity not found");
+                return;
+            }
 
             _healthApi.Unregister(entity.HealthOwnerId);
             _entityRegistry.Remove(instanceId);

@@ -9,13 +9,15 @@ namespace Signal.Core.Entities.Application
         private readonly Dictionary<EntityInstanceId, Entity> _entities = new();
         private readonly Dictionary<HealthOwnerId, EntityInstanceId> _entityByHealthOwner = new();
 
+        public IEnumerable<Entity> Entities => _entities.Values;
+
         public void Add(Entity entity)
         {
             _entities.Add(entity.InstanceId, entity);
             _entityByHealthOwner.Add(entity.HealthOwnerId, entity.InstanceId);
         }
 
-        public Entity Get(EntityInstanceId instanceId) => _entities[instanceId];
+        public bool TryGet(EntityInstanceId instanceId, out Entity entity) => _entities.TryGetValue(instanceId, out entity);
 
         public bool TryGetByHealthOwner(HealthOwnerId ownerId, out Entity entity)
         {

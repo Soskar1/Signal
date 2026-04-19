@@ -15,4 +15,5 @@ MonoBehaviour:
   _cooldownInSeconds: 1
   _from: {fileID: 11400000, guid: e525ed4d6ee62434ea278ba775a51ad7, type: 2}
   _to: {fileID: 11400000, guid: 2db53ac09d4e0984e9802d3259d78a47, type: 2}
-  _amount: 1
+  _fromAmount: 1
+  _toAmount: 1

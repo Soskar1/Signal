@@ -8,10 +8,12 @@ namespace Signal.Core.Buildings.Infrastructure
     {
         [SerializeField] private ResourceId _from;
         [SerializeField] private ResourceId _to;
-        [SerializeField] private int _amount;
+        [SerializeField] private int _fromAmount = 1;
+        [SerializeField] private int _toAmount = 1;
 
         public ResourceId From => _from;
         public ResourceId To => _to;
-        public int Amount => _amount;
+        public int FromAmount => _fromAmount;
+        public int ToAmount => _toAmount;
     }
 }

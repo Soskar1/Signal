@@ -6,18 +6,20 @@ namespace Signal.Core.Buildings.Domain
     {
         private readonly ResourceId _convertFrom;
         private readonly ResourceId _convertTo;
-        private readonly int _amount;
+        private readonly int _fromAmount;
+        private readonly int _toAmount;
         private readonly float _cooldownInSeconds;
 
         private readonly IResourceWallet _resourceWallet;
 
         private double _elapsed;
 
-        public ResourceConvertionAction(ResourceId convertFrom, ResourceId convertTo, int amount, float cooldownInSeconds, IResourceWallet resourceWallet)
+        public ResourceConvertionAction(ResourceId convertFrom, ResourceId convertTo, int fromAmount, int toAmount, float cooldownInSeconds, IResourceWallet resourceWallet)
         {
             _convertFrom = convertFrom;
             _convertTo = convertTo;
-            _amount = amount;
+            _fromAmount = fromAmount;
+            _toAmount = toAmount;
             _cooldownInSeconds = cooldownInSeconds;
             _resourceWallet = resourceWallet;
         }
@@ -35,10 +37,10 @@ namespace Signal.Core.Buildings.Domain
 
         public void Execute()
         {
-            bool success = _resourceWallet.TryWithdraw(_convertFrom, _amount);
+            bool success = _resourceWallet.TryWithdraw(_convertFrom, _fromAmount);
             if (success)
             {
-                _resourceWallet.Add(_convertTo, _amount);
+                _resourceWallet.Add(_convertTo, _toAmount);
             }
         }
     }

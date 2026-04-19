@@ -19,7 +19,7 @@ MonoBehaviour:
   _headSprite: {fileID: 21300000, guid: 6934f6eab94c415498ebb6dd793da506, type: 3}
   _displaySprite: {fileID: 21300000, guid: 4e8fca4f7a9cd2b42b035ffb138b638c, type: 3}
   _category: 1
-  _actionDefinition: {fileID: 0}
+  _actionDefinition: {fileID: 11400000, guid: c8c6360b3d2cf4f4491542cf2c4617bd, type: 2}
   _isConstructable: 1
   _health: 10
   _buildingCost:

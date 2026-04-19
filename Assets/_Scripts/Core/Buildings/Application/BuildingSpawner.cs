@@ -46,13 +46,14 @@ namespace Signal.Core.Buildings.Application
 
         public void Spawn(GridPosition gridPosition, BuildingId buildingId)
         {
+            var worldPosition = _gridSnapper.GetSnappedWorldPosition(gridPosition);
+
             var definition = _buildingCatalog.Get(buildingId.Id);
-            var action = _buildingActionFactory.Create(definition.ActionDefinition);
+            var action = _buildingActionFactory.Create(definition.ActionDefinition, worldPosition);
 
             var healthOwnerId = _healthApi.Register(definition.Health);
             var entityInstanceId = _entityInstanceIdFactory.Create(healthOwnerId);
 
-            var worldPosition = _gridSnapper.GetSnappedWorldPosition(gridPosition);
             var building = new Building(definition.Id, entityInstanceId, gridPosition, worldPosition, action);
 
             _buildingRegistry.Add(building);

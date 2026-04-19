@@ -13,11 +13,6 @@ namespace Signal.Core.Entities.Application
             _presenters.Add(instanceId, presenter);
         }
 
-        public EntityPresenter Get(EntityInstanceId instanceId)
-        {
-            return _presenters[instanceId];
-        }
-
         public bool TryGet(EntityInstanceId instanceId, out EntityPresenter presenter)
         {
             return _presenters.TryGetValue(instanceId, out presenter);
