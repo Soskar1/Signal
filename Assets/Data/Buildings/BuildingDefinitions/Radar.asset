@@ -18,6 +18,7 @@ MonoBehaviour:
   _baseSprite: {fileID: 21300000, guid: 2b425673c9221214988c8435280cbcd0, type: 3}
   _headSprite: {fileID: 0}
   _displaySprite: {fileID: 21300000, guid: 2b425673c9221214988c8435280cbcd0, type: 3}
-  _actionDefinition: {fileID: 11400000, guid: d68dff03c80f52a4d9d37e74fb0ec2a7, type: 2}
   _category: 0
+  _actionDefinition: {fileID: 11400000, guid: d68dff03c80f52a4d9d37e74fb0ec2a7, type: 2}
   _isConstructable: 0
+  _health: 10

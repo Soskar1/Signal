@@ -1,7 +1,6 @@
-﻿using Signal.Core.World;
-using System;
+﻿using System;
 
-namespace Signal.Core.Entities
+namespace Signal.Core.World
 {
     public readonly struct EntityInstanceId : IEquatable<EntityInstanceId>
     {

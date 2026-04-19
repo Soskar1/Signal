@@ -12,6 +12,7 @@ namespace Signal.Core.World
         {
             containerBuilder.RegisterType(typeof(HealthRegistry), Lifetime.Singleton, Resolution.Lazy);
             containerBuilder.RegisterFactory<IHealthApi>(container => new HealthApi(container.Resolve<HealthRegistry>()), Lifetime.Singleton, Resolution.Lazy);
+            containerBuilder.RegisterFactory<IEntityInstanceIdFactory>(container => new EntityInstanceIdFactory(), Lifetime.Singleton, Resolution.Lazy);
             return containerBuilder;
         }
     }

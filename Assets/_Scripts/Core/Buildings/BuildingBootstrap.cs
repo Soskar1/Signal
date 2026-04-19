@@ -14,19 +14,27 @@ namespace Signal.Core.Buildings
 
         [SerializeField] private BuildingPanelPresenter _buildingPanel;
 
-        private BuildingPlacement _buildingPlacement;
+        private BuildingSpawner _buildingSpawner;
+        private BuildingLifecycle _buildingLifecycle;
 
         [Inject]
-        internal void Inject(BuildingPlacement buildingPlacement)
+        internal void Inject(BuildingSpawner BuildingSpawner, BuildingLifecycle buildingLifecycle)
         {
-            _buildingPlacement = buildingPlacement;
+            _buildingSpawner = BuildingSpawner;
+            _buildingLifecycle = buildingLifecycle;
         }
 
         public void Initialize()
         {
+            _buildingLifecycle.Initialize();
             _buildingPanel.Initialize();
-            _buildingPlacement.PlaceBuilding(_radarSpawnpoint, _radar.Id);
-            _buildingPlacement.PlaceBuilding(_landingPadSpawnpoint, _landingPad.Id);
+            _buildingSpawner.Spawn(_radarSpawnpoint, _radar.Id);
+            _buildingSpawner.Spawn(_landingPadSpawnpoint, _landingPad.Id);
+        }
+
+        public void OnDestroy()
+        {
+            _buildingLifecycle.Dispose();
         }
     }
 }

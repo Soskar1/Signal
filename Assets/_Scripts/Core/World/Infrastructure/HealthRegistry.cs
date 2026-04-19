@@ -6,27 +6,27 @@ namespace Signal.Core.World.Infrastructure
 {
     internal sealed class HealthRegistry
     {
-        private readonly Dictionary<HealthOwnerId, Health> _states = new();
+        private readonly Dictionary<HealthOwnerId, Health> _healths = new();
 
         public Health Register(HealthOwnerId ownerId, int maxHealth)
         {
-            if (_states.ContainsKey(ownerId))
+            if (_healths.ContainsKey(ownerId))
                 throw new InvalidOperationException($"Health for owner '{ownerId}' is already registered.");
 
             var health = new Health(maxHealth);
-            _states.Add(ownerId, health);
+            _healths.Add(ownerId, health);
             
             return health;
         }
 
         public void Unregister(HealthOwnerId ownerId)
         {
-            _states.Remove(ownerId);
+            _healths.Remove(ownerId);
         }
 
         public Health Get(HealthOwnerId ownerId)
         {
-            if (!_states.TryGetValue(ownerId, out var state))
+            if (!_healths.TryGetValue(ownerId, out var state))
                 throw new KeyNotFoundException($"Health for owner '{ownerId}' was not found.");
 
             return state;

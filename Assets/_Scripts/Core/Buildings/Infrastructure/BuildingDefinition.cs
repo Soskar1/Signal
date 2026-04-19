@@ -8,14 +8,19 @@ namespace Signal.Core.Buildings
     internal class BuildingDefinition : ScriptableObject
     {
         [SerializeField] private BuildingId _id;
+
+        [Header("Display Info")]
         [SerializeField] private string _displayName;
         [SerializeField] private string _description;
         [SerializeField] private Sprite _baseSprite;
         [SerializeField] private Sprite _headSprite;
         [SerializeField] private Sprite _displaySprite;
-        [SerializeField] private BuildingActionDefinition _actionDefinition;
         [SerializeField] private BuildingCategory _category;
+
+        [Header("Gameplay")]
+        [SerializeField] private BuildingActionDefinition _actionDefinition;
         [SerializeField] private bool _isConstructable;
+        [SerializeField] private int _health;
 
         public string Id => _id.Id;
         public string DisplayName => _displayName;
@@ -26,5 +31,6 @@ namespace Signal.Core.Buildings
         public BuildingActionDefinition ActionDefinition => _actionDefinition;
         public BuildingCategory Category => _category;
         public bool IsConstructable => _isConstructable;
+        public int Health => _health;
     }
 }

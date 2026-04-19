@@ -192,37 +192,6 @@ MonoBehaviour:
   _radar: {fileID: 11400000, guid: ebbd87f85146ebc4b8193e97b7b65933, type: 2}
   _landingPad: {fileID: 11400000, guid: 1beac0bd7dcdd604fa0e85121e809344, type: 2}
   _buildingPanel: {fileID: 1114730789}
---- !u!1 &169124959
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 169124960}
-  m_Layer: 0
-  m_Name: Spawnpoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &169124960
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 169124959}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.25, y: 1.43, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &179552814
 GameObject:
   m_ObjectHideFlags: 0
@@ -325,8 +294,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Signal.Core.Building::Signal.Core.Buildings.Presentation.GhostBuildingPresenter
   _renderer: {fileID: 201384418}
-  _invalidBuildingPlacementColor: {r: 1, g: 0, b: 0.030305386, a: 0.6313726}
-  _validBuildingPlacementColor: {r: 0, g: 0.98039216, b: 1, a: 0.6313726}
+  _invalidBuildingSpawnerColor: {r: 1, g: 0, b: 0, a: 0.6156863}
+  _validBuildingSpawnerColor: {r: 0, g: 1, b: 0.8793845, a: 0.65882355}
 --- !u!212 &201384418
 SpriteRenderer:
   serializedVersion: 2
@@ -754,8 +723,6 @@ MonoBehaviour:
   _economyBootstrap: {fileID: 1132357657}
   _buildingBootstrap: {fileID: 82495995}
   _entityBootstrap: {fileID: 1986369015}
-  _entityToSpawn: {fileID: 11400000, guid: 90c8c7e54f9d12743841580084105ed5, type: 2}
-  _entitySpawnpoint: {fileID: 169124960}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -2241,6 +2208,5 @@ SceneRoots:
   - {fileID: 1945077970}
   - {fileID: 434618236}
   - {fileID: 1558351389}
-  - {fileID: 169124960}
   - {fileID: 201384416}
   - {fileID: 645505416}

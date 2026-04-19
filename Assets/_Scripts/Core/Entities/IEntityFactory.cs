@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Signal.Core.World;
+using UnityEngine;
 
 namespace Signal.Core.Entities
 {

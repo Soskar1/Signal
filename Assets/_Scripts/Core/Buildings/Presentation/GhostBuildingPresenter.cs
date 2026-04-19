@@ -5,8 +5,8 @@ namespace Signal.Core.Buildings.Presentation
     public class GhostBuildingPresenter : MonoBehaviour
     {
         [SerializeField] private SpriteRenderer _renderer;
-        [SerializeField] private Color _invalidBuildingPlacementColor;
-        [SerializeField] private Color _validBuildingPlacementColor;
+        [SerializeField] private Color _invalidBuildingSpawnerColor;
+        [SerializeField] private Color _validBuildingSpawnerColor;
 
         public void Display(Sprite buildingSprite)
         {
@@ -21,12 +21,12 @@ namespace Signal.Core.Buildings.Presentation
 
         public void DisplayAsValid()
         {
-            _renderer.color = _validBuildingPlacementColor;
+            _renderer.color = _validBuildingSpawnerColor;
         }
 
         public void DisplayAsInvalid()
         {
-            _renderer.color = _invalidBuildingPlacementColor;
+            _renderer.color = _invalidBuildingSpawnerColor;
         }
     }
 }
