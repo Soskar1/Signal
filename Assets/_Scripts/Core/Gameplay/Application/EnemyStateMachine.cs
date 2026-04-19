@@ -7,58 +7,65 @@ namespace Signal.Core.Gameplay.Application
 {
     internal class EnemyStateMachine
     {
-        private readonly EntityInstanceId _entity;
-        private readonly float _attackInterval;
-        private readonly int _attackDamage;
+        private readonly EntityInfo _entity;
         private double _elapsedTime;
 
         private readonly IEntityMovement _entityMovement;
         private readonly IHealthApi _healthApi;
+        private readonly IBuildingQuery _buildingQuery;
 
-        private readonly BuildingInfo _target;
+        private readonly BuildingInfo _primaryTarget;
+        private BuildingInfo _currentTarget;
 
         public EnemyStateMachine(
-            EntityInstanceId instanceId,
+            EntityInfo entityInfo,
             BuildingInfo target,
-            int attackDamage,
-            float attackInterval,
             IEntityMovement movement,
-            IHealthApi healthApi)
+            IHealthApi healthApi,
+            IBuildingQuery buildingQuery)
         {
-            _entity = instanceId;
-            _attackInterval = attackInterval;
-            _attackDamage = attackDamage;
-            _target = target;
+            _entity = entityInfo;
+            _primaryTarget = target;
             _entityMovement = movement;
             _healthApi = healthApi;
+            _buildingQuery = buildingQuery;
+
+            _currentTarget = _primaryTarget;
         }
 
         public void Tick(float deltaTime)
         {
-            var currentEnemyPosition = _entityMovement.GetPosition(_entity);
+            var currentEnemyPosition = _entityMovement.GetPosition(_entity.InstanceId);
 
-            if (Vector2.Distance(currentEnemyPosition, _target.WorldPosition) > 1f)
+            if (Vector2.Distance(currentEnemyPosition, _currentTarget.WorldPosition) > _entity.AttackDistance)
             {
                 _elapsedTime = 0;
-                _entityMovement.MoveTowards(_entity, _target.WorldPosition, deltaTime);
+
+                Vector2 direction = (_currentTarget.WorldPosition - currentEnemyPosition).normalized;
+                Vector2 pointInFront = currentEnemyPosition + direction * _entity.AttackDistance;
+
+                var buildingInfo = _buildingQuery.GetBuildingAt(pointInFront);
+
+                if (buildingInfo != null)
+                {
+                    _currentTarget = buildingInfo;
+                }
+
+                _entityMovement.MoveTowards(_entity.InstanceId, _currentTarget.WorldPosition, deltaTime);
             }
             else
             {
                 _elapsedTime += deltaTime;
 
-                if (_elapsedTime < _attackInterval)
+                if (_elapsedTime < _entity.AttackSpeed)
                 {
                     return;
                 }
 
-                bool isDamageApplied = _healthApi.TryApplyDamage(_target.HealthOwnerId, _attackDamage);
-
-                if (!isDamageApplied)
-                {
-                    Debug.LogError("Damage is not applied!");
-                }
-
+                _healthApi.TryApplyDamage(_currentTarget.HealthOwnerId, _entity.AttackDamage);
+                
                 _elapsedTime = 0;
+                _currentTarget = _primaryTarget;
             }
         }
     }

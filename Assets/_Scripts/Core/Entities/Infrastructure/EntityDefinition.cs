@@ -11,6 +11,7 @@ namespace Signal.Core.Entities.Infrastructure
         [SerializeField] private float _moveSpeed;
         [SerializeField] private int _attackDamage;
         [SerializeField] private float _attackSpeed;
+        [SerializeField] private float _attackDistance;
 
         public EntityId Id => _id;
         public Sprite Sprite => _sprite;
@@ -18,5 +19,6 @@ namespace Signal.Core.Entities.Infrastructure
         public int AttackDamage => _attackDamage;
         public float MoveSpeed => _moveSpeed;
         public float AttackSpeed => _attackSpeed;
+        public float AttackDistance => _attackDistance;
     }
 }

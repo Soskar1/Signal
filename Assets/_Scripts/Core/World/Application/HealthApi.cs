@@ -1,6 +1,7 @@
 ﻿using Signal.Core.World.Domain;
 using Signal.Core.World.Infrastructure;
 using System;
+using UnityEngine;
 
 namespace Signal.Core.World.Application
 {
@@ -27,13 +28,55 @@ namespace Signal.Core.World.Application
         }
 
         public void Unregister(HealthOwnerId ownerId) => _registry.Unregister(ownerId);
-        public int GetCurrent(HealthOwnerId ownerId) => _registry.Get(ownerId).Current;
-        public int GetMax(HealthOwnerId ownerId) => _registry.Get(ownerId).Max;
-        public bool IsDead(HealthOwnerId ownerId) => _registry.Get(ownerId).IsDead;
+        
+        public int GetCurrent(HealthOwnerId ownerId)
+        {
+            var foundHealth = _registry.TryGet(ownerId, out var health);
+
+            if (!foundHealth)
+            {
+                Debug.LogWarning($"Health with ID {ownerId.Id} was not found!");
+                return 0;
+            }
+
+            return health.Current;
+        }
+
+        public int GetMax(HealthOwnerId ownerId)
+        {
+            var foundHealth = _registry.TryGet(ownerId, out var health);
+
+            if (!foundHealth)
+            {
+                Debug.LogWarning($"Health with ID {ownerId.Id} was not found!");
+                return 0;
+            }
+
+            return health.Max;
+        }
+
+        public bool IsDead(HealthOwnerId ownerId)
+        {
+            var foundHealth = _registry.TryGet(ownerId, out var health);
+
+            if (!foundHealth)
+            {
+                Debug.LogWarning($"Health with ID {ownerId.Id} was not found!");
+                return true;
+            }
+
+            return health.IsDead;
+        }
 
         public bool TryApplyDamage(HealthOwnerId ownerId, int amount)
         {
-            var health = _registry.Get(ownerId);
+            var foundHealth = _registry.TryGet(ownerId, out var health);
+            
+            if (!foundHealth)
+            {
+                return false;
+            }
+
             var isDamageApplied = health.TryApplyDamage(amount);
 
             if (isDamageApplied)

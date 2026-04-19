@@ -10,17 +10,10 @@ namespace Signal.Core.Entities.Application
         {
             _entityRegistry = entityRegistry;
         }
-
-        public int GetEntityAttackDamage(EntityInstanceId entityId)
+        public EntityInfo GetEntityInfo(EntityInstanceId entityInstanceId)
         {
-            var entity = _entityRegistry.Get(entityId);
-            return entity.AttackDamage;
-        }
-
-        public float GetEntityAttackSpeed(EntityInstanceId entityId)
-        {
-            var entity = _entityRegistry.Get(entityId);
-            return entity.AttackSpeed;
+            var entity = _entityRegistry.Get(entityInstanceId);
+            return new EntityInfo(entityInstanceId, entity.AttackDamage, entity.AttackSpeed, entity.AttackDistance);
         }
     }
 }

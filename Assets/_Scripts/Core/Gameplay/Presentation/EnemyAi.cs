@@ -41,10 +41,9 @@ namespace Signal.Core.Gameplay.Presentation
 
         public void RegisterEnemy(EntityInstanceId enemyInstanceId)
         {
-            var attackDamage = _entityQuery.GetEntityAttackDamage(enemyInstanceId);
-            var attackSpeed = _entityQuery.GetEntityAttackSpeed(enemyInstanceId);
+            var entityInfo = _entityQuery.GetEntityInfo(enemyInstanceId);
 
-            var stateMachine = new EnemyStateMachine(enemyInstanceId, _target, attackDamage, attackSpeed, _entityMovement, _healthApi);
+            var stateMachine = new EnemyStateMachine(entityInfo, _target, _entityMovement, _healthApi, _buildingQuery);
             _enemies.Add(stateMachine);
         }
 

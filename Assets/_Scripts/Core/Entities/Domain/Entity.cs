@@ -13,6 +13,7 @@ namespace Signal.Core.Entities.Domain
         public HealthOwnerId HealthOwnerId => InstanceId.HealthOwnerId;
         public int AttackDamage { get; }
         public float AttackSpeed { get; }
+        public float AttackDistance { get; }
 
         public Entity(EntityInstanceId instanceId, EntityDefinition entityDefinition)
         {
@@ -20,6 +21,7 @@ namespace Signal.Core.Entities.Domain
             _id = entityDefinition.Id;
             AttackDamage = entityDefinition.AttackDamage;
             AttackSpeed = entityDefinition.AttackSpeed;
+            AttackDistance = entityDefinition.AttackDistance;
         }
     }
 }
