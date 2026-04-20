@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ccafedda098f504098c70a33c262ce0, type: 3}
   m_Name: 3lvlSpawnerConfiguration
   m_EditorClassIdentifier: Signal.Core.Gameplay::Signal.Core.Gameplay.Infrastructure.EnemySpawnerConfiguration
-  _spawnInterval: 3
+  _spawnInterval: 4
   _entities:
   - {fileID: 11400000, guid: e85af1cd82953c04f931efccbe25dc58, type: 2}
   - {fileID: 11400000, guid: 4c5b532adb7e95f46818d3dcdf9edbd4, type: 2}

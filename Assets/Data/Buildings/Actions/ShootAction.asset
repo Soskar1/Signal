@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e7988740a9fccc43b831a29fb555139, type: 3}
   m_Name: ShootAction
   m_EditorClassIdentifier: Signal.Core.Building::Signal.Core.Buildings.Infrastructure.ShootActionDefinition
-  _cooldownInSeconds: 0.3
+  _cooldownInSeconds: 0.25
   _projectilePrefab: {fileID: 9000124589027470229, guid: 7ef5c3eeb4f55964eb36c7186b8ee22c, type: 3}
   _resource: {fileID: 11400000, guid: 28de9ba1b0c0a414e9dcdf4911b6d0e8, type: 2}
   _amount: 1

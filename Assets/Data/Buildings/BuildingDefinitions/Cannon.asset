@@ -25,6 +25,6 @@ MonoBehaviour:
   _health: 3
   _buildingCost:
   - _resourceId: {fileID: 11400000, guid: 2db53ac09d4e0984e9802d3259d78a47, type: 2}
-    _cost: 5
+    _cost: 4
   - _resourceId: {fileID: 11400000, guid: 8ab7e395e1618414abef055deaa8a054, type: 2}
-    _cost: 10
+    _cost: 8
