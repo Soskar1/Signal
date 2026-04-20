@@ -49,6 +49,9 @@ namespace Signal.Core.Buildings.Presentation
             var nextPosition = Vector2.MoveTowards(transform.position, targetPosition, _speed * Time.deltaTime);
             _lastMovementDirection = (targetPosition - (Vector2)transform.position).normalized;
 
+            float angle = Mathf.Atan2(_lastMovementDirection.y, _lastMovementDirection.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0f, 0f, angle);
+
             transform.position = nextPosition;
 
             if (Vector2.Distance(transform.position, targetPosition) < _hitDistance)
