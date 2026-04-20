@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c797a13822b2444c9006b99c823d047, type: 3}
+  m_Name: FrozenHusk
+  m_EditorClassIdentifier: Signal.Core.Entities::Signal.Core.Entities.Infrastructure.EntityDefinition
+  _id: {fileID: 11400000, guid: 4ec94acf5493caf4fa4237a1492bb169, type: 2}
+  _sprite: {fileID: 21300000, guid: b32d39697fbf4334294bc1f62adb06e6, type: 3}
+  _health: 20
+  _moveSpeed: 1
+  _attackDamage: 1
+  _attackSpeed: 1
+  _attackDistance: 0.6
