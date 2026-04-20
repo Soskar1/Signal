@@ -328,8 +328,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Signal.Core.Building::Signal.Core.Buildings.BuildingBootstrap
   _radarSpawnpoint: {x: 0, y: 0}
   _landingPadSpawnpoint: {x: 1, y: 0}
+  _turretSpawnpoint: {x: -1, y: 0}
   _radar: {fileID: 11400000, guid: ebbd87f85146ebc4b8193e97b7b65933, type: 2}
   _landingPad: {fileID: 11400000, guid: 1beac0bd7dcdd604fa0e85121e809344, type: 2}
+  _turret: {fileID: 11400000, guid: 03c75de693fb95242bb79559b6de38af, type: 2}
   _buildingPanel: {fileID: 1114730789}
 --- !u!1 &179552814
 GameObject:
@@ -1318,51 +1320,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!1 &865358944
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 865358946}
-  - component: {fileID: 865358945}
-  m_Layer: 0
-  m_Name: EnemySpawner2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &865358945
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 865358944}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c25747d7ed886bc4d8b3c8185faeaaf8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Signal.Core.Gameplay::Signal.Core.Gameplay.Presentation.EnemySpawner
-  _outOfScreenSpawnMargin: 1
---- !u!4 &865358946
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 865358944}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &869221113
 GameObject:
   m_ObjectHideFlags: 0
@@ -1609,7 +1566,7 @@ GameObject:
   - component: {fileID: 969288228}
   - component: {fileID: 969288227}
   m_Layer: 0
-  m_Name: EnemySpawner1
+  m_Name: EnemySpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1627,7 +1584,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c25747d7ed886bc4d8b3c8185faeaaf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Signal.Core.Gameplay::Signal.Core.Gameplay.Presentation.EnemySpawner
+  _enemySpawnerConfigurations:
+  - {fileID: 11400000, guid: 005e9915eda79bb49b7bec519e2fae3c, type: 2}
+  - {fileID: 11400000, guid: e864b72ed71a365489d6fc4575161906, type: 2}
+  - {fileID: 11400000, guid: 804aa032c7acd074196aa8dcf926edbb, type: 2}
+  - {fileID: 11400000, guid: 42d27c122a1227b41ad5cf13930c8d0f, type: 2}
   _outOfScreenSpawnMargin: 1
+  _lastLevelTime: 120
+  _firstLevelStartTime: 15
 --- !u!4 &969288228
 Transform:
   m_ObjectHideFlags: 0
@@ -3479,51 +3443,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1833436119}
   m_CullTransparentMesh: 1
---- !u!1 &1909591664
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1909591666}
-  - component: {fileID: 1909591665}
-  m_Layer: 0
-  m_Name: EnemySpawner3
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1909591665
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1909591664}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c25747d7ed886bc4d8b3c8185faeaaf8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Signal.Core.Gameplay::Signal.Core.Gameplay.Presentation.EnemySpawner
-  _outOfScreenSpawnMargin: 1
---- !u!4 &1909591666
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1909591664}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1945077966
 GameObject:
   m_ObjectHideFlags: 0
@@ -3677,6 +3596,16 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7fc18e8d0e23a1e4197e98c8b19c9de1, type: 2}
   - {fileID: 11400000, guid: f1b9b65e46665b04c8e08cdf19bac34b, type: 2}
   - {fileID: 11400000, guid: 84bea34936176f74ea2265373dbd9a1c, type: 2}
+  - {fileID: 11400000, guid: bc6d5220497b23348b7ea18c96805a6a, type: 2}
+  - {fileID: 11400000, guid: acf5cbc4c22d2c743bf5704f7c39001a, type: 2}
+  - {fileID: 11400000, guid: bbe6cf0693717b44a9f5f79b193fc03f, type: 2}
+  - {fileID: 11400000, guid: 1d89d4a6fce26394998c3879afbeb887, type: 2}
+  - {fileID: 11400000, guid: 0ede9a59efc434b4f8429ef37b79ef16, type: 2}
+  - {fileID: 11400000, guid: cad6e9481a23b21459f54fe5885a41c6, type: 2}
+  - {fileID: 11400000, guid: bae3bb293aebb6f47bc983bad6bdc7df, type: 2}
+  - {fileID: 11400000, guid: bed99c887530b1c4bad83b405778457a, type: 2}
+  - {fileID: 11400000, guid: 04eb598cfae687741981ffff53f78175, type: 2}
+  - {fileID: 11400000, guid: b3fade509b66fe545a91747619096802, type: 2}
   _entityPrefab: {fileID: 6362644974208328493, guid: cfef626c040a07843b41c7f482180a7c, type: 3}
   _entityPoolParent: {fileID: 645505416}
 --- !u!114 &1986369015
@@ -3737,8 +3666,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Signal.Core.Gameplay::Signal.Core.Gameplay.GameplayBootstrap
   _startingResourceConfiguration: {fileID: 11400000, guid: 73e74fc1d1fd3b04b8efe5fd0087c356, type: 2}
-  _initialSpawnerConfiguration: {fileID: 11400000, guid: 005e9915eda79bb49b7bec519e2fae3c, type: 2}
-  _enemySpawner: {fileID: 969288227}
   _targetBuildingId: {fileID: 11400000, guid: 99bb63a737779054bb132774c7e55f2e, type: 2}
 --- !u!114 &2133530544
 MonoBehaviour:
@@ -3889,8 +3816,6 @@ SceneRoots:
   - {fileID: 201384416}
   - {fileID: 645505416}
   - {fileID: 969288228}
-  - {fileID: 865358946}
-  - {fileID: 1909591666}
   - {fileID: 1254773626}
   - {fileID: 876257019}
   - {fileID: 1672610857}

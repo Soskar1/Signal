@@ -22,7 +22,7 @@ MonoBehaviour:
   _animatorController: {fileID: 9100000, guid: b1cfa21075322d34db8b254c5fb28264, type: 2}
   _actionDefinition: {fileID: 11400000, guid: d072104277e4f7e42a7cd35b5e34af29, type: 2}
   _isConstructable: 1
-  _health: 10
+  _health: 4
   _buildingCost:
   - _resourceId: {fileID: 11400000, guid: 8ab7e395e1618414abef055deaa8a054, type: 2}
     _cost: 5

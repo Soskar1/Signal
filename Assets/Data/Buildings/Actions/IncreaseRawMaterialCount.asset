@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4f4d3cf84959b049b63ca683004ab38, type: 3}
   m_Name: IncreaseRawMaterialCount
   m_EditorClassIdentifier: Signal.Core.Building::Signal.Core.Buildings.Infrastructure.IncreaseResourceActionDefinition
-  _cooldownInSeconds: 10
+  _cooldownInSeconds: 20
   _resources:
   - {fileID: 11400000, guid: e525ed4d6ee62434ea278ba775a51ad7, type: 2}
   - {fileID: 11400000, guid: 8ab7e395e1618414abef055deaa8a054, type: 2}

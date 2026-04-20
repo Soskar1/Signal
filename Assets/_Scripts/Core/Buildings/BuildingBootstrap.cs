@@ -9,8 +9,10 @@ namespace Signal.Core.Buildings
     {
         [SerializeField] private Vector2 _radarSpawnpoint;
         [SerializeField] private Vector2 _landingPadSpawnpoint;
+        [SerializeField] private Vector2 _turretSpawnpoint;
         [SerializeField] private BuildingDefinition _radar;
         [SerializeField] private BuildingDefinition _landingPad;
+        [SerializeField] private BuildingDefinition _turret;
 
         [SerializeField] private BuildingPanelPresenter _buildingPanel;
 
@@ -29,6 +31,7 @@ namespace Signal.Core.Buildings
             _buildingPanel.Initialize();
             _buildingSpawner.Spawn(_radarSpawnpoint, _radar.Id);
             _buildingSpawner.Spawn(_landingPadSpawnpoint, _landingPad.Id);
+            _buildingSpawner.Spawn(_turretSpawnpoint, _turret.Id);
         }
 
         public void OnDestroy()

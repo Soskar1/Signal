@@ -3,7 +3,6 @@ using Signal.Core.Buildings;
 using Signal.Core.Economy;
 using Signal.Core.Gameplay.Application;
 using Signal.Core.Gameplay.Infrastructure;
-using Signal.Core.Gameplay.Presentation;
 using System.Linq;
 using UnityEngine;
 
@@ -12,10 +11,6 @@ namespace Signal.Core.Gameplay
     public class GameplayBootstrap : MonoBehaviour
     {
         [SerializeField] private StartingResourcesConfiguration _startingResourceConfiguration;
-
-        [SerializeField] private EnemySpawnerConfiguration _initialSpawnerConfiguration;
-        [SerializeField] private EnemySpawner _enemySpawner;
-
         [SerializeField] private BuildingId _targetBuildingId;
 
         private EnemyAi _enemyAi;
@@ -38,8 +33,6 @@ namespace Signal.Core.Gameplay
             {
                 _resourceWallet.Add(startingResource.ResourceId, startingResource.Amount);
             }
-
-            _enemySpawner.Configure(_initialSpawnerConfiguration);
 
             var buildingInfo = _buildingQuery.GetBuildingInfo(_targetBuildingId).FirstOrDefault();
 
