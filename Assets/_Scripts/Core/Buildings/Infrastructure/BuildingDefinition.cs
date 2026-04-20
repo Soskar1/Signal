@@ -1,7 +1,6 @@
 using Signal.Core.Buildings.Domain;
 using Signal.Core.Buildings.Infrastructure;
 using System.Collections.Generic;
-using UnityEditor.Animations;
 using UnityEngine;
 
 namespace Signal.Core.Buildings
@@ -18,7 +17,7 @@ namespace Signal.Core.Buildings
         [SerializeField] private Sprite _headSprite;
         [SerializeField] private Sprite _displaySprite;
         [SerializeField] private BuildingCategory _category;
-        [SerializeField] private AnimatorController _animatorController;
+        [SerializeField] private RuntimeAnimatorController _animatorController;
 
         [Header("Gameplay")]
         [SerializeField] private BuildingActionDefinition _actionDefinition;
@@ -37,6 +36,6 @@ namespace Signal.Core.Buildings
         public bool IsConstructable => _isConstructable;
         public int Health => _health;
         public List<ResourceCost> BuildingCost => _buildingCost;
-        public AnimatorController AnimatorController => _animatorController;
+        public RuntimeAnimatorController AnimatorController => _animatorController;
     }
 }

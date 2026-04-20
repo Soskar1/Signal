@@ -1,5 +1,4 @@
 ﻿using Signal.Core.Buildings.Domain;
-using UnityEditor.Animations;
 using UnityEngine;
 
 namespace Signal.Core.Buildings.Presentation
@@ -13,7 +12,7 @@ namespace Signal.Core.Buildings.Presentation
 
         private Building _building;
 
-        public void Initialize(Building building, Sprite baseSprite, Sprite headSprite, AnimatorController animatorController)
+        public void Initialize(Building building, Sprite baseSprite, Sprite headSprite, RuntimeAnimatorController animatorController)
         {
             _building = building;
             _baseRenderer.sprite = baseSprite;

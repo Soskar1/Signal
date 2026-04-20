@@ -13,6 +13,6 @@ namespace Signal.Core.Bootstrap
             _signal = signal;
         }
 
-        public void Start() => _signal.TransitionToGameScene();
+        public void Start() => _signal.TransitionToMainMenu();
     }
 }
