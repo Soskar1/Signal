@@ -17,14 +17,16 @@ namespace Signal.Core.Gameplay
         private IBuildingQuery _buildingQuery;
         private IResourceWallet _resourceWallet;
         private LoseConditionListener _loseConditionListener;
+        private WinConditionListener _winConditionListener;
 
         [Inject]
-        internal void Inject(EnemyAi ai, IBuildingQuery buildingQuery, IResourceWallet resourceWallet, LoseConditionListener loseConditionListener)
+        internal void Inject(EnemyAi ai, IBuildingQuery buildingQuery, IResourceWallet resourceWallet, LoseConditionListener loseConditionListener, WinConditionListener winConditionListener)
         {
             _enemyAi = ai;
             _buildingQuery = buildingQuery;
             _resourceWallet = resourceWallet;
             _loseConditionListener = loseConditionListener;
+            _winConditionListener = winConditionListener;
         }
 
         public void Initialize()
@@ -48,6 +50,7 @@ namespace Signal.Core.Gameplay
         {
             _loseConditionListener.Dispose();
             _enemyAi.Dispose();
+            _winConditionListener.Dispose();
         }
     }
 }
