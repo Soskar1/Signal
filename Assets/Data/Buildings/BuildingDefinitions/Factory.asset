@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Signal.Core.Building::Signal.Core.Buildings.BuildingData
   _id: {fileID: 11400000, guid: e4e1f73fe4c41084f9b90d12199c2ab3, type: 2}
   _displayName: Factory
-  _description: Test
+  _description: Converts meteor to bricks
   _baseSprite: {fileID: 7798421948516414117, guid: 3aa4d6abbe0e50f41b5790ba7b86a44e, type: 3}
   _headSprite: {fileID: 0}
   _displaySprite: {fileID: 7798421948516414117, guid: 3aa4d6abbe0e50f41b5790ba7b86a44e, type: 3}

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Signal.Core.Building::Signal.Core.Buildings.BuildingData
   _id: {fileID: 11400000, guid: 707c011c6e0fe30489a1c1d283f685cd, type: 2}
   _displayName: Radar
-  _description: Test
+  _description: Converts raw iron to iron ingot
   _baseSprite: {fileID: -1554214871758326463, guid: dc7da6e67d80a9a43a6e37f7a027ae58, type: 3}
   _headSprite: {fileID: 0}
   _displaySprite: {fileID: -1554214871758326463, guid: dc7da6e67d80a9a43a6e37f7a027ae58, type: 3}

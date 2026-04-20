@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Signal.Core.Entities::Signal.Core.Entities.Infrastructure.EntityDefinition
   _id: {fileID: 11400000, guid: e85af1cd82953c04f931efccbe25dc58, type: 2}
   _sprite: {fileID: 21300000, guid: f0bf9fbd02d129e4ab4a03c7ef78fa55, type: 3}
-  _health: 20
-  _moveSpeed: 1
-  _attackDamage: 1
+  _health: 40
+  _moveSpeed: 0.5
+  _attackDamage: 2
   _attackSpeed: 1
   _attackDistance: 0.6

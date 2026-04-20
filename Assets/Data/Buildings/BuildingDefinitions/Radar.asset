@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Signal.Core.Building::Signal.Core.Buildings.BuildingData
   _id: {fileID: 11400000, guid: 99bb63a737779054bb132774c7e55f2e, type: 2}
   _displayName: Radar
-  _description: Test
+  _description: Heart of the base
   _baseSprite: {fileID: 6330969168363139030, guid: 2b425673c9221214988c8435280cbcd0, type: 3}
   _headSprite: {fileID: 0}
   _displaySprite: {fileID: 6330969168363139030, guid: 2b425673c9221214988c8435280cbcd0, type: 3}

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Signal.Core.Building::Signal.Core.Buildings.BuildingData
   _id: {fileID: 11400000, guid: f99dfcb3e28cd0d4395fea038605df2a, type: 2}
   _displayName: Armory
-  _description: Test
+  _description: Creates bullets from iron
   _baseSprite: {fileID: 1074756794, guid: 4f6dae1291e29834e8938301150dbc32, type: 3}
   _headSprite: {fileID: 0}
   _displaySprite: {fileID: 1074756794, guid: 4f6dae1291e29834e8938301150dbc32, type: 3}
