@@ -19,15 +19,22 @@ namespace Signal.Core.Entities.Application
 
         public Vector2 GetPosition(EntityInstanceId entityId)
         {
-            var presenter = _presenterRegistry.Get(entityId);
+            _presenterRegistry.TryGet(entityId, out var presenter);
             return presenter.transform.position;
         }
 
         public void MoveTowards(EntityInstanceId entityId, Vector2 targetPosition, float deltaTime)
         {
-            var entity = _entityRegistry.Get(entityId);
+            var success = _entityRegistry.TryGet(entityId, out var entity);
+
+            if (!success)
+            {
+                Debug.LogWarning("Entity not found!");
+                return;
+            }
+
             var definition = _definitionCatalog.Get(entity.DefinitionId.RawId);
-            var presenter = _presenterRegistry.Get(entityId);
+            _presenterRegistry.TryGet(entityId, out var presenter);
 
             var currentPosition = (Vector2)presenter.transform.position;
             var nextPosition = Vector2.MoveTowards(currentPosition, targetPosition, definition.MoveSpeed * deltaTime);

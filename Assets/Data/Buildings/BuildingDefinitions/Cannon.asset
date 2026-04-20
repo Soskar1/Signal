@@ -14,14 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Signal.Core.Building::Signal.Core.Buildings.BuildingData
   _id: {fileID: 11400000, guid: 2d8bbfef9abeccf49aebb66fbbeadc2c, type: 2}
   _displayName: Cannon
-  _description: Test
+  _description: Uses bullets to shoot your enemies
   _baseSprite: {fileID: 21300000, guid: 90c477cc17edeea4cb3961cd4b1c2252, type: 3}
   _headSprite: {fileID: 21300000, guid: 6934f6eab94c415498ebb6dd793da506, type: 3}
   _displaySprite: {fileID: 21300000, guid: 4e8fca4f7a9cd2b42b035ffb138b638c, type: 3}
   _category: 1
-  _actionDefinition: {fileID: 0}
+  _animatorController: {fileID: 0}
+  _actionDefinition: {fileID: 11400000, guid: c8c6360b3d2cf4f4491542cf2c4617bd, type: 2}
   _isConstructable: 1
-  _health: 10
+  _health: 3
   _buildingCost:
   - _resourceId: {fileID: 11400000, guid: 2db53ac09d4e0984e9802d3259d78a47, type: 2}
     _cost: 5

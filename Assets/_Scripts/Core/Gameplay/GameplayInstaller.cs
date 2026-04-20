@@ -13,6 +13,9 @@ namespace Signal.Core.Gameplay
     {
         [SerializeField] private BuildingId _targetBuildingId;
         [SerializeField] private GameOverScreen _gameOverScreen;
+        [SerializeField] private int _winConditionTimeInMinutes;
+        [SerializeField] private YouWonScreen _youWonScreen;
+        [SerializeField] private EnemySpawnerPresenter _enemySpawnerPresenter;
 
         public void Install(ContainerBuilder containerBuilder)
         {
@@ -30,6 +33,16 @@ namespace Signal.Core.Gameplay
                     container.Resolve<EnemyAi>(),
                     container.Resolve<Timer>(),
                     _gameOverScreen),
+                Lifetime.Singleton, Resolution.Lazy);
+
+            containerBuilder.RegisterFactory(container =>
+                new WinConditionListener(
+                    container.Resolve<GameplayTime>(),
+                    container.Resolve<Timer>(),
+                    _winConditionTimeInMinutes,
+                    container.Resolve<EnemyAi>(),
+                    _youWonScreen,
+                    _enemySpawnerPresenter),
                 Lifetime.Singleton, Resolution.Lazy);
         }
     }

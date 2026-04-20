@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ccafedda098f504098c70a33c262ce0, type: 3}
-  m_Name: EnemySpawnerConfiguration
+  m_Name: 1lvlSpawnerConfiguration
   m_EditorClassIdentifier: Signal.Core.Gameplay::Signal.Core.Gameplay.Infrastructure.EnemySpawnerConfiguration
   _spawnInterval: 3
   _entities:

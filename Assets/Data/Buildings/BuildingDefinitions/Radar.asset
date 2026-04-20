@@ -14,11 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Signal.Core.Building::Signal.Core.Buildings.BuildingData
   _id: {fileID: 11400000, guid: 99bb63a737779054bb132774c7e55f2e, type: 2}
   _displayName: Radar
-  _description: Test
+  _description: Heart of the base
   _baseSprite: {fileID: 6330969168363139030, guid: 2b425673c9221214988c8435280cbcd0, type: 3}
   _headSprite: {fileID: 0}
   _displaySprite: {fileID: 6330969168363139030, guid: 2b425673c9221214988c8435280cbcd0, type: 3}
   _category: 0
+  _animatorController: {fileID: 9100000, guid: f350f6e7f67042847a5395fdc0c92b34, type: 2}
   _actionDefinition: {fileID: 11400000, guid: d68dff03c80f52a4d9d37e74fb0ec2a7, type: 2}
   _isConstructable: 0
   _health: 10

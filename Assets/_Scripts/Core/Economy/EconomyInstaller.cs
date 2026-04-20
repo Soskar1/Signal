@@ -18,7 +18,9 @@ namespace Signal.Core.Economy
             containerBuilder.RegisterFactory(container => new ResourceCatalog(_resources), Lifetime.Singleton, Resolution.Lazy);
             containerBuilder.RegisterFactory<IResourceQuery>(container => container.Resolve<ResourceCatalog>(), Lifetime.Singleton, Resolution.Lazy);
             containerBuilder.RegisterValue(_categories);
-            containerBuilder.RegisterFactory<IResourceWallet>(container => new ResourceWallet(container.Resolve<ResourceCatalog>()), Lifetime.Singleton, Resolution.Lazy);
+            containerBuilder.RegisterFactory(container => new ResourceWallet(container.Resolve<ResourceCatalog>()), Lifetime.Singleton, Resolution.Lazy);
+            containerBuilder.RegisterFactory<IResourceWallet>(container => container.Resolve<ResourceWallet>(), Lifetime.Singleton, Resolution.Lazy);
+            containerBuilder.RegisterFactory<IResourceObserver>(container => container.Resolve<ResourceWallet>(), Lifetime.Singleton, Resolution.Lazy);
         }
     }
 }

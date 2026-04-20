@@ -14,14 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Signal.Core.Building::Signal.Core.Buildings.BuildingData
   _id: {fileID: 11400000, guid: e4e1f73fe4c41084f9b90d12199c2ab3, type: 2}
   _displayName: Factory
-  _description: Test
+  _description: Converts meteor to bricks
   _baseSprite: {fileID: 7798421948516414117, guid: 3aa4d6abbe0e50f41b5790ba7b86a44e, type: 3}
   _headSprite: {fileID: 0}
   _displaySprite: {fileID: 7798421948516414117, guid: 3aa4d6abbe0e50f41b5790ba7b86a44e, type: 3}
   _category: 2
-  _actionDefinition: {fileID: 11400000, guid: d68dff03c80f52a4d9d37e74fb0ec2a7, type: 2}
+  _animatorController: {fileID: 9100000, guid: b1cfa21075322d34db8b254c5fb28264, type: 2}
+  _actionDefinition: {fileID: 11400000, guid: d072104277e4f7e42a7cd35b5e34af29, type: 2}
   _isConstructable: 1
-  _health: 10
+  _health: 4
   _buildingCost:
   - _resourceId: {fileID: 11400000, guid: 8ab7e395e1618414abef055deaa8a054, type: 2}
     _cost: 5

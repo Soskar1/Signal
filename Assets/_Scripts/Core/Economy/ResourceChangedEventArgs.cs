@@ -1,16 +1,16 @@
 ﻿using System;
 
-namespace Signal.Core.Economy.Domain
+namespace Signal.Core.Economy
 {
-    internal class ResourceChangedEventArgs : EventArgs
+    public class ResourceChangedEventArgs : EventArgs
     {
         public string ResourceName { get; }
-        public int Count { get; }
+        public int CurrentCount { get; }
 
         public ResourceChangedEventArgs(string resourceName, int count)
         {
             ResourceName = resourceName;
-            Count = count;
+            CurrentCount = count;
         }
     }
 }

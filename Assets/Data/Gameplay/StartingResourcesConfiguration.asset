@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3a2c79bc4c74204cb7d3cc510883b92, type: 3}
+  m_Name: StartingResourcesConfiguration
+  m_EditorClassIdentifier: Signal.Core.Gameplay::Signal.Core.Gameplay.Infrastructure.StartingResourcesConfiguration
+  _startingResources:
+  - _resourceId: {fileID: 11400000, guid: 8ab7e395e1618414abef055deaa8a054, type: 2}
+    _amount: 15
+  - _resourceId: {fileID: 11400000, guid: f07be65e62b32d74288463765c61eb15, type: 2}
+    _amount: 15
+  - _resourceId: {fileID: 11400000, guid: e525ed4d6ee62434ea278ba775a51ad7, type: 2}
+    _amount: 15
+  - _resourceId: {fileID: 11400000, guid: 28de9ba1b0c0a414e9dcdf4911b6d0e8, type: 2}
+    _amount: 50
+  - _resourceId: {fileID: 11400000, guid: 2db53ac09d4e0984e9802d3259d78a47, type: 2}
+    _amount: 10
+  - _resourceId: {fileID: 11400000, guid: a3c341acfebb3654e86b3506e4bb3e1a, type: 2}
+    _amount: 10
