@@ -31,7 +31,9 @@ namespace Signal.Core.Economy.Infrastructure
         public ResourceInfo GetResourceInfo(ResourceId resourceId)
         {
             var definition = _resourceDefinitions[resourceId.Id];
-            return new ResourceInfo(definition.Sprite);
+            var resource = Get(resourceId);
+
+            return new ResourceInfo(definition.Sprite, resource.Count);
         }
     }
 }

@@ -24,7 +24,7 @@ namespace Signal.Core.Buildings.Application
         {
             return definition switch
             {
-                IncreaseResourceActionDefinition increase => new IncreaseResourceAction(increase.ResourceId, increase.Amount, increase.CooldownInSeconds, _resourceWallet),
+                IncreaseResourceActionDefinition increase => new IncreaseResourceAction(increase.Resources, increase.Amount, increase.CooldownInSeconds, _resourceWallet),
                 ResourceConvertionActionDefinition convertion => new ResourceConvertionAction(convertion.From, convertion.To, convertion.FromAmount, convertion.ToAmount, convertion.CooldownInSeconds, _resourceWallet),
                 ShootActionDefinition shoot => new ShootAction(shoot.Resource, shoot.ProjectilePrefab, shoot.Amount, shoot.CooldownInSeconds, _resourceWallet, _healthApi, _entityQuery, buildingWorldPosition),
                 _ => new EmptyAction()

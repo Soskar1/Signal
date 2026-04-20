@@ -1,6 +1,7 @@
 ﻿using Reflex.Attributes;
 using Signal.Core.Buildings.Domain;
 using Signal.Core.Buildings.Infrastructure;
+using Signal.Core.Economy;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -21,11 +22,16 @@ namespace Signal.Core.Buildings.Presentation
         private BuildingCatalog _buildingCatalog;
         private IEnumerable<BuildingCategoryDefinition> _buildingCategories;
 
+        private IResourceObserver _resourceObserver;
+        private IResourceQuery _resourceQuery;
+
         [Inject]
-        public void Inject(BuildingCatalog buildingCatalog, List<BuildingCategoryDefinition> buildingCategories)
+        public void Inject(BuildingCatalog buildingCatalog, List<BuildingCategoryDefinition> buildingCategories, IResourceObserver resourceObserver, IResourceQuery resourceQuery)
         {
             _buildingCatalog = buildingCatalog;
             _buildingCategories = buildingCategories;
+            _resourceObserver = resourceObserver;
+            _resourceQuery = resourceQuery;
         }
 
         public void Initialize()
@@ -40,7 +46,7 @@ namespace Signal.Core.Buildings.Presentation
                 }
 
                 var presenter = Instantiate(_buildingButtonPrefab, _buildingButtonContainer);
-                presenter.Initialize(definition, _tooltip, _buildModePresenter);
+                presenter.Initialize(definition, _tooltip, _buildModePresenter, _resourceObserver, _resourceQuery);
 
                 if (!buildingButtonsByCategory.TryGetValue(definition.Category, out var buttonList))
                 {

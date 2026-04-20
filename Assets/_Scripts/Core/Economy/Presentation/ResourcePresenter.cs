@@ -31,7 +31,7 @@ namespace Signal.Core.Economy.Presentation
 
         private void OnResourceChanged(object sender, ResourceChangedEventArgs args)
         {
-            _countText.text = args.Count.ToString();
+            _countText.text = args.CurrentCount.ToString();
         }
     }
 }

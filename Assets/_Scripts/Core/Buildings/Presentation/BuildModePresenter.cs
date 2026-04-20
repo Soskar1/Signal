@@ -1,6 +1,7 @@
 ﻿using Reflex.Attributes;
 using Signal.Core.Buildings.Application;
 using Signal.Core.Buildings.Domain;
+using Signal.Core.Economy;
 using Signal.Core.Player;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -20,12 +21,15 @@ namespace Signal.Core.Buildings.Presentation
         private GridSnapper _gridSnapper;
         private GridPosition _currentBuildingPosition;
 
+        private IResourceWallet _resourceWallet;
+
         [Inject]
-        public void Inject(IInputReader inputReader, BuildingSpawner buildingSpawner, GridSnapper gridSnapper)
+        public void Inject(IInputReader inputReader, BuildingSpawner buildingSpawner, GridSnapper gridSnapper, IResourceWallet resourceWallet)
         {
             _inputReader = inputReader;
             _buildingSpawner = buildingSpawner;
             _gridSnapper = gridSnapper;
+            _resourceWallet = resourceWallet;
         }
 
         public void Update()
@@ -73,6 +77,11 @@ namespace Signal.Core.Buildings.Presentation
 
         private void Build()
         {
+            foreach (var resource in _currentBuilding.BuildingCost)
+            {
+                _resourceWallet.TryWithdraw(resource.ResourceId, resource.Cost);
+            }
+
             _buildingSpawner.Spawn(_currentBuildingPosition, _currentBuilding.Id);
             _currentBuilding = null;
         }
